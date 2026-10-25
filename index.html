@@ -28,7 +28,7 @@
 .hero-photo:before{display:none!important}
 .hero-photo{width:46%!important}
 .hero-photo img{width:100%!important;height:100%!important;max-height:none!important;object-fit:cover!important;object-position:50% 8%!important;-webkit-mask-image:linear-gradient(to right,#000 0%,#000 62%,transparent 100%);mask-image:linear-gradient(to right,#000 0%,#000 62%,transparent 100%)}
-.avatar img{object-fit:cover;object-position:center top}
+.avatar img{object-fit:cover;object-position:50% 6%}.pphoto img{object-position:50% 6%}.hero-photo img{object-position:50% 4%!important}
 
 
 /* Clinics & consultation days */
@@ -124,15 +124,82 @@
 .hero-photo img{height:100%;max-height:235px;object-fit:cover;object-position:center top}
 @media(max-width:350px){.hero{min-height:220px}.hero-copy{width:61%;padding:17px 13px}.hero h2{font-size:18px}.hero-photo img{max-height:220px}}
 
+
+.app{height:100dvh!important;min-height:0!important;padding-bottom:0!important;overflow:hidden!important}
+@media(min-width:600px){.app{height:min(880px,calc(100dvh - 50px))!important}}
+#screens{position:absolute;inset:0}
+.screen{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;padding-bottom:120px;display:none;overscroll-behavior:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.screen::-webkit-scrollbar{display:none}
+.screen.active{display:block}
+.screen.in-l{animation:inL .4s cubic-bezier(.2,.8,.2,1)}.screen.in-r{animation:inR .4s cubic-bezier(.2,.8,.2,1)}
+@keyframes inL{from{opacity:0;transform:translateX(-38px)}to{opacity:1;transform:none}}
+@keyframes inR{from{opacity:0;transform:translateX(38px)}to{opacity:1;transform:none}}
+.screen.active>*{animation:rise .5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*45ms)}
+.page-body>*{animation:rise .4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.sh{padding:calc(28px + env(safe-area-inset-top,0px)) 24px 16px}.sh h2{font-size:27px;margin:0 0 4px;font-weight:800;letter-spacing:-.5px}.sh p{margin:0;color:#778397;font-size:13px}
+#s-branches .section-title,#s-appointments .section-title{display:none}#s-appointments #fu .section-title{display:flex}
+#s-account .why-list{margin-bottom:6px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:0 23px 16px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid #e1e8f5;background:#fff;color:#4a5a73;border-radius:999px;padding:9px 16px;font:inherit;font-size:12.5px;font-weight:700;cursor:pointer;transition:.25s}
+.chip.on{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 6px 16px rgba(33,109,224,.3)}
+button,.clinic,.quick,.prow,.proc,.opt{transition:transform .15s,background .2s,border-color .2s}
+button:active,.clinic:active,.quick:active,.prow:active,.proc:active,.opt:active{transform:scale(.97)}
+.bottom{position:absolute!important;left:12px!important;right:12px!important;bottom:calc(12px + env(safe-area-inset-bottom,0px))!important;width:auto!important;max-width:none!important;transform:none!important;height:68px!important;border-radius:24px!important;padding:6px!important;border:1px solid #e6ecf7!important;box-shadow:0 14px 36px rgba(33,70,140,.2)!important;background:rgba(255,255,255,.94)!important}
+.bottom .tab{border:0;background:transparent;color:#8a94a6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font:inherit;font-size:10.5px;font-weight:700;position:relative;z-index:1;cursor:pointer;transition:color .25s}
+.bottom .tab.active{color:var(--blue)}
+.bottom .tabicon{display:grid;place-items:center;height:24px;transition:transform .3s cubic-bezier(.2,.8,.2,1)}.bottom .tab.active .tabicon{transform:translateY(-1px) scale(1.1)}
+.nav-pill{position:absolute;top:6px;bottom:6px;left:0;border-radius:18px;background:#e8f0ff;transition:transform .38s cubic-bezier(.2,.8,.2,1),width .38s;z-index:0}
+.page{left:0!important;right:0;margin:0 auto;transform:none!important}
+.page.show{animation:pgIn .34s cubic-bezier(.2,.8,.2,1)}
+@keyframes pgIn{from{opacity:0;transform:translateX(-46px)}to{opacity:1;transform:none}}
+.prog{display:flex;gap:6px;margin-bottom:18px}.prog i{flex:1;height:5px;border-radius:9px;background:#dfe7f5;transition:background .3s}.prog i.on{background:var(--blue)}
+.bt{font-size:20px;margin:0 0 4px}.bs{font-size:12.5px;color:#7d899a;margin:0 0 16px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;background:#fff;border:1.5px solid #edf0f6;border-radius:16px;padding:15px;margin-bottom:10px;font:inherit;color:var(--ink);text-align:start;cursor:pointer}
+.opt.sel{border-color:var(--blue);background:#f0f6ff}.opt b{display:block;font-size:14px}.opt small{color:#7d899a;font-size:11.5px}
+.opt .ck{margin-inline-start:auto;flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #cfd8e8}.opt.sel .ck{background:var(--blue);border-color:var(--blue);box-shadow:inset 0 0 0 4px #fff}
+.sum{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}.sum span{background:#e8f0ff;color:var(--blue);border-radius:9px;padding:6px 10px;font-size:11.5px;font-weight:800}
+.hero h2 .dn{white-space:nowrap;display:inline-block}.bmi-card{display:flex;align-items:center;gap:12px;width:100%;background:linear-gradient(120deg,#e6f7f3,#eaf1ff);border:1px solid #d9ece8;border-radius:18px;padding:14px;font:inherit;color:var(--ink);text-align:start;cursor:pointer}
+.bmi-card b{display:block;font-size:14.5px}.bmi-card small{font-size:11.5px;color:#6b7b8f}.bmi-card .chev{margin-inline-start:auto;font-size:22px;color:#6b7b8f}
+.bmi-res{background:#fff;border:1px solid #edf0f6;border-radius:20px;padding:18px;text-align:center;margin-top:16px}
+.bmi-num{font-size:44px;font-weight:800;line-height:1.1;color:var(--ink)}.bmi-cat{display:inline-block;margin:8px 0 14px;border-radius:10px;padding:6px 14px;font-weight:800;font-size:13px}
+.bmi-bar{position:relative;height:10px;border-radius:9px;background:linear-gradient(90deg,#6aa9ff 0%,#4cc38a 22%,#f2c14e 45%,#f08a4b 67%,#e5534b 100%)}
+.bmi-pin{position:absolute;top:-5px;width:6px;height:20px;border-radius:4px;background:var(--ink);border:2px solid #fff;transform:translateX(-50%);transition:left .4s cubic-bezier(.2,.8,.2,1)}
+.bmi-sc{display:flex;justify-content:space-between;font-size:10px;color:#8b97a8;margin-top:6px;direction:ltr}
+.bmi-note{font-size:11.5px;line-height:1.9;color:#7d899a;margin:12px 0 0}
+.em{background:linear-gradient(120deg,#fff0ee,#ffe6e1);border:1px solid #ffd3cc;border-radius:18px;padding:15px;margin-bottom:6px}.em b{display:block;font-size:14.5px;color:#b8382f;margin-bottom:4px}.em p{margin:0 0 12px;font-size:12px;line-height:1.8;color:#8a5a55}
+.cb{display:flex;gap:9px}.cbtn{flex:1;text-align:center;text-decoration:none;border-radius:11px;padding:11px;font-weight:800;font-size:13px;background:#d6453b;color:#fff}.cbtn.g{background:#fff;color:#d6453b;border:1.5px solid #f1c3bd}
+.jr{background:#fff;border:1px solid #edf0f6;border-radius:18px;padding:15px;box-shadow:0 5px 16px rgba(35,60,103,.05)}.jr>b{font-size:15px}.jr p{font-size:12.5px;line-height:1.9;color:#65748a;margin:6px 0 12px}.jr.on{background:linear-gradient(135deg,#eaf3ff,#e8f7f0);border-color:#d9e8f6}.jr small{font-size:11px;color:#6b7b8f;font-weight:700}.jr h4{margin:2px 0 10px;font-size:17px}.jr.on p{margin:10px 0 6px;color:#42536b}
+.sl{width:100%;border:1.5px solid #e1e8f5;background:#fff;border-radius:12px;padding:12px 8px;font:inherit;font-size:13px;color:var(--ink)}
+.bar{height:8px;border-radius:9px;background:#d7e4f5;overflow:hidden}.bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#216de0,#2fb985)}
+.al{list-style:none;margin:6px 0;padding:0;display:grid;gap:6px}.al li{display:flex;justify-content:space-between;gap:8px;background:#fff;border-radius:11px;padding:9px 11px;font-size:12px}.al li b{direction:ltr}.al li span{color:#1f8a57;font-weight:800;white-space:nowrap}
+.lnk{border:0;background:none;color:var(--blue);font:inherit;font-size:12px;font-weight:800;padding:6px 0 0;cursor:pointer}
+.mrow{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #f0f2f7}.mrow:last-child{border:0}.mrow b{display:block;font-size:13px;text-align:start}.mrow small{display:block;font-size:11.5px;color:#7d899a;line-height:1.7}.mrow span{flex:none;background:#e7f8ee;color:#1f8a57;border-radius:8px;padding:4px 9px;font-size:11px;font-weight:800}.mrow em{display:block;font-style:normal;font-size:11.5px;font-weight:800;color:#d6453b}.mrow.imp span{background:#ffe6e1;color:#d6453b}
+.dl{list-style:none;margin:0;padding:0;display:grid;gap:8px}.dl li{display:flex;gap:10px;background:#fff;border:1px solid #edf0f6;border-radius:13px;padding:11px 12px;font-size:12.5px;line-height:1.8;color:#42536b}.dl li:before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:#e7f8ee;color:#1f8a57;display:grid;place-items:center;font-size:12px;font-weight:800}.dl.no li:before{content:"✕";background:#ffe6e1;color:#d6453b}.dl.tx li:before{content:"!";background:#e8f0ff;color:var(--blue)}
+.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.wgrid .field label{font-size:11px}
+.wst{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:8px;margin:12px 0 6px}.wst div{background:#fff;border:1px solid #e3ecfb;border-radius:13px;padding:10px 4px;text-align:center}.wst b{display:block;font-size:19px;color:var(--blue)}.wst small{font-size:10px;color:#7d899a;font-weight:700}
+.wch{width:100%;background:#fff;border:1px solid #edf0f6;border-radius:14px;margin-top:4px}
+.mrow,.al li{direction:ltr}.mrow>div{text-align:left;flex:1;min-width:0}.mrow b,.mrow small{text-align:left!important;unicode-bidi:plaintext}.mrow small{margin-top:2px}.mrow span,.al li span{unicode-bidi:plaintext}.cbtn{display:flex;align-items:center;justify-content:center;gap:9px;padding:13px 10px;border-radius:14px;box-shadow:0 6px 16px rgba(214,69,59,.28)}.cbtn svg{width:21px;height:21px;flex:none}.cbtn.wa{background:#1fa855;color:#fff;box-shadow:0 6px 16px rgba(31,168,85,.28)}.wt-empty{background:#fff;border:1px dashed #cfdcf2;border-radius:20px;padding:22px 18px;text-align:center}.wt-empty b{display:block;font-size:16px;margin:8px 0 4px}.wt-empty p{font-size:12.5px;line-height:1.9;color:#7d899a;margin:0 0 14px}.wt-ic{width:54px;height:54px;border-radius:17px;background:#e8f0ff;color:var(--blue);display:grid;place-items:center;margin:0 auto;font-size:26px}
+.wt-hero{background:linear-gradient(135deg,#1c4fb5,#2f7cf0);color:#fff;border-radius:22px;padding:18px;box-shadow:0 12px 28px rgba(33,87,200,.28)}.wt-hero small{font-size:11.5px;opacity:.8;font-weight:700}
+.wt-big{display:flex;align-items:baseline;gap:6px;margin:2px 0 8px}.wt-big b{font-size:46px;line-height:1.1;letter-spacing:-1px}.wt-big span{font-size:14px;opacity:.85}
+.wt-d{display:inline-block;background:rgba(255,255,255,.18);border-radius:10px;padding:5px 11px;font-size:12.5px;font-weight:800}.wt-d.up{background:rgba(255,190,80,.35)}
+.wt-st{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.wt-st div{background:rgba(255,255,255,.14);border-radius:13px;padding:9px 4px;text-align:center}.wt-st b{display:block;font-size:15px}.wt-st small{font-size:10px;opacity:.8}
+.wt-pr{margin-top:14px;font-size:11.5px;font-weight:700}.wt-pr .bar{background:rgba(255,255,255,.22);margin-top:6px}.wt-pr .bar i{background:#fff}
+.wt-card{background:#fff;border:1px solid #edf0f6;border-radius:18px;padding:12px 8px 6px;margin-top:12px}.wt-card svg{width:100%;display:block}
+.wt-act{display:flex;gap:9px;margin-top:12px}.wt-act .primary{flex:1.5;padding:13px}.wt-act .ghost{flex:1;border:1px solid #d5e2f8;background:#fff;color:var(--blue);border-radius:10px;font-weight:700;font-size:12.5px;cursor:pointer}
+.wl{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #edf0f6;border-radius:14px;padding:11px 12px;margin-top:8px}.wl>div{flex:1}.wl b{display:block;font-size:13px}.wl small{font-size:11px;font-weight:800}.wl small.dn{color:#1f8a57}.wl small.up{color:#c27a14}.wl strong{font-size:15px}.wl button{border:0;background:#f1f4f9;color:#8b97a8;width:28px;height:28px;border-radius:9px;font-size:16px;cursor:pointer}
+a.prow{text-decoration:none}.fu-t{font-size:13px;font-weight:800;margin:16px 0 8px;color:#34445c}
+.field input{width:100%}.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.row3 .field label{font-size:11px}.dates{display:flex;gap:9px;overflow-x:auto;padding:2px 2px 8px;scrollbar-width:none}.dates::-webkit-scrollbar{display:none}.dt{flex:none;width:74px;border:1.5px solid #e1e8f5;background:#fff;color:#4a5a73;border-radius:16px;padding:10px 4px;text-align:center;font:inherit;cursor:pointer;display:flex;flex-direction:column;gap:2px;align-items:center}.dt b{font-size:22px;color:var(--ink);line-height:1.2}.dt small{font-size:11px;font-weight:700}.dt.on{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 6px 16px rgba(33,109,224,.3)}.dt.on b{color:#fff}.seg{display:flex;gap:8px}.seg button{flex:1;border:1.5px solid #e1e8f5;background:#fff;color:#4a5a73;border-radius:12px;padding:12px;font:inherit;font-weight:800;font-size:13px;cursor:pointer}.seg button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div class="app">
+<div class="app"><main id="screens"><div class="screen active" id="s-home">
   <header class="header">
     <div class="hello"><h1>أهلًا بك 👋</h1><p>إزاي نقدر نساعدك النهارده؟</p></div>
     <button class="icon-btn" aria-label="الإشعارات" onclick="notify('لا توجد إشعارات جديدة')">♧</button>
   </header>
-  <label class="search"><span>⌕</span><input id="searchInput" placeholder="ابحث عن خدمة طبية أو عيادة..." oninput="searchContent(this.value)"><span style="font-size:17px">⌕</span></label>
+  <label class="search"><span>⌕</span><input id="searchInput" readonly onclick="openSearch()" placeholder="ابحث عن خدمة طبية أو عيادة..."><span style="font-size:17px">⌕</span></label>
   <section class="quick-grid" aria-label="الخدمات السريعة">
     <button class="quick" onclick="openBooking()"><span class="qicon blue">▣</span><span>حجز موعد</span></button>
     <button class="quick" onclick="goTo('branches')"><span class="qicon green">▦</span><span>العيادات<br>والفروع</span></button>
@@ -141,14 +208,14 @@
   </section>
   <section class="hero">
     <div class="hero-copy">
-      <h2>عيادات د. أحمد الزلباني</h2>
+      <h2>عيادات<br><span class="dn">د. أحمد الزلباني</span></h2>
       <p>جراحة المناظير والسمنة المفرطة وجراحة الأطفال</p>
       <button class="primary" onclick="openBooking()">احجز موعدك الآن ←</button>
     </div>
-    <div class="hero-photo"><img src="images/hero.jpg" alt="الدكتور أحمد الزلباني"></div>
+    <div class="hero-photo"><img src="images/doctor.jpg" alt="الدكتور أحمد الزلباني"></div>
     <div class="online"><i></i> عيادات الدكتور</div>
   </section>
-  <section class="section" id="about">
+  <section class="section" id="fcard"><button class="bmi-card" style="background:linear-gradient(120deg,#e8f6ee,#e6f0ff)" onclick="go('appointments')"><div class="spec-icon pink">♡</div><div><b>دليل المتابعة بعد العملية</b><small>الأدوية والنظام الغذائي ومتابعة وزنك</small></div><span class="chev">‹</span></button></section><section class="section" id="bmi"><button class="bmi-card" onclick="openBMI()"><div class="spec-icon teal">⚖</div><div><b>احسب مؤشر كتلة جسمك</b><small>اعرف وضع وزنك في ثوانٍ</small></div><span class="chev">‹</span></button></section><section class="section" id="about">
     <div class="section-title"><h3>عن الدكتور</h3></div>
     <div class="about-card" data-search="عن الدكتور أحمد الزلباني استشاري جراحة المناظير السمنة خبرة 25 عاما">
       <div class="avatar"><img id="aboutImg" alt="الدكتور أحمد الزلباني"></div>
@@ -157,7 +224,7 @@
       <button class="more" onclick="openAbout()">اقرأ المزيد ←</button>
     </div>
   </section>
-  <section class="section" id="services">
+  </div><div class="screen" id="s-services"><div class="sh"><h2>الخدمات</h2><p>اختر الخدمة التي تبحث عنها</p></div><label class="search"><span>⌕</span><input id="searchInput2" placeholder="ابحث عن خدمة طبية أو عيادة..." oninput="searchContent(this.value)"><span style="font-size:17px">⌕</span></label><section class="section" id="services">
     <div class="section-title"><h3>الخدمات الطبية</h3><button onclick="showAllServices()">عرض الكل ←</button></div>
     <div class="specialties">
       <div class="specialty" data-search="جراحات السمنة"><div class="spec-icon pink">♡</div><span>جراحات السمنة</span></div>
@@ -169,7 +236,7 @@
   <div class="procs-label">العمليات والإجراءات</div>
     <div class="procs" id="procs"></div>
   </section>
-  <section class="section" id="branches">
+  </div><div class="screen" id="s-branches"><div class="sh"><h2>العيادات</h2><p>مواقع الاستقبال وأيام الاستشارات</p></div><div class="chips"><button class="chip on" onclick="filt(this,'')">الكل</button><button class="chip" onclick="filt(this,'المنوفية')">المنوفية</button><button class="chip" onclick="filt(this,'الغربية')">الغربية</button><button class="chip" onclick="filt(this,'القليوبية')">القليوبية</button><button class="chip" onclick="filt(this,'القاهرة')">القاهرة</button></div><section class="section" id="branches">
     <div class="section-title"><h3>أماكن العيادات ومواعيد الاستشارات</h3></div>
     <p class="clinics-intro">يستقبل الدكتور أحمد الزلباني المرضى في عدد من المستشفيات والمراكز الطبية بمحافظات المنوفية والغربية والقليوبية والقاهرة، لتقديم الاستشارات الطبية وتقييم الحالات وتحديد الخيارات العلاجية المناسبة.</p>
     <div class="clinics">
@@ -206,7 +273,15 @@
       <small>يُرجى التأكد من موعد الاستقبال قبل التوجه إلى المستشفى.</small>
     </div>
   </section>
-  <section class="section" id="why">
+  </div><div class="screen" id="s-appointments"><div class="sh"><h2>متابعتي</h2><p>مواعيدك وبرنامج التعافي بعد العملية</p></div><section class="section" id="appointments">
+    <div class="section-title"><h3>مواعيدي القادمة</h3><button onclick="showAppointments()">عرض الكل ←</button></div>
+    <div id="appointmentCard" class="appointment" onclick="openBooking()">
+      <div class="avatar" style="display:grid;place-items:center;color:#216de0;font-size:24px">▦</div>
+      <div class="appt-info"><b>ليس لديك موعد قادم</b><small>احجز موعدك مع العيادة في خطوات بسيطة.</small><div class="appt-meta"><span>اختر الخدمة والفرع المناسب</span></div></div>
+      <button class="primary" onclick="event.stopPropagation();openBooking()" style="padding:9px 10px">احجز</button>
+    </div>
+  </section>
+  <div id="fu"></div><div class="section"><div class="clinic-cta" style="margin:0"><h4>تحتاج استشارة جديدة؟</h4><p>احجز في خمس خطوات بسيطة واختر الفرع الأقرب إليك.</p><button class="primary" onclick="openBooking()">احجز موعدًا جديدًا</button></div></div></div><div class="screen" id="s-account"><div class="sh"><h2>حسابي</h2><p>إدارة بياناتك وخدماتك</p></div><div class="section"><div class="about-card" style="align-items:center"><div class="avatar"><img id="accImg" alt=""></div><div><h4>أهلًا بك</h4><div class="role">سجّل دخولك قريبًا لإدارة مواعيدك وملفاتك</div></div></div></div><div class="section"><div class="plist"><button class="prow" onclick="openAbout()"><div class="spec-icon teal">✣</div><div><b>عن الدكتور</b><small>الخبرة والرؤية والقيم</small></div><span class="chev">‹</span></button><button class="prow" onclick="openList()"><div class="spec-icon pink">♡</div><div><b>الخدمات الطبية</b><small>العمليات والإجراءات بالتفصيل</small></div><span class="chev">‹</span></button><button class="prow" onclick="showModal('ملفاتي الطبية','سيتم تفعيل الملفات الطبية الآمنة عند ربط التطبيق بنظام العيادة.')"><div class="spec-icon orange">✚</div><div><b>ملفاتي الطبية</b><small>التقارير والفحوصات</small></div><span class="chev">‹</span></button><button class="prow" onclick="showModal('الرسائل','سيتم تفعيل الرسائل والتنبيهات عند ربط النظام.')"><div class="spec-icon sky">⌁</div><div><b>الرسائل والتنبيهات</b><small>تابع ردود العيادة</small></div><span class="chev">‹</span></button></div></div><section class="section" id="why">
     <div class="section-title"><h3>لماذا تختار الدكتور أحمد الزلباني؟</h3></div>
     <p class="clinics-intro" id="whyIntro"></p>
     <div class="why-list" id="whyList"></div>
@@ -218,22 +293,7 @@
     </div>
     <p class="disc" id="disc"></p>
   </section>
-  <section class="section" id="appointments">
-    <div class="section-title"><h3>مواعيدي القادمة</h3><button onclick="showAppointments()">عرض الكل ←</button></div>
-    <div id="appointmentCard" class="appointment" onclick="openBooking()">
-      <div class="avatar" style="display:grid;place-items:center;color:#216de0;font-size:24px">▦</div>
-      <div class="appt-info"><b>ليس لديك موعد قادم</b><small>احجز موعدك مع العيادة في خطوات بسيطة.</small><div class="appt-meta"><span>اختر الخدمة والفرع المناسب</span></div></div>
-      <button class="primary" onclick="event.stopPropagation();openBooking()" style="padding:9px 10px">احجز</button>
-    </div>
-  </section>
-  <nav class="bottom" aria-label="التنقل الرئيسي">
-    <button class="tab active" onclick="activateTab(this,'home')"><span class="tabicon">⌂</span><span>الرئيسية</span></button>
-    <button class="tab" onclick="activateTab(this,'services')"><span class="tabicon">⌕</span><span>الخدمات</span></button>
-    <button class="tab" onclick="activateTab(this,'appointments')"><span class="tabicon">▦</span><span>مواعيدي</span></button>
-    <button class="tab" onclick="showModal('الرسائل','سيتم تفعيل الرسائل والتنبيهات عند ربط النظام.')"><span class="tabicon">▤</span><span>الرسائل</span></button>
-    <button class="tab" onclick="showModal('حسابي','سيتم تفعيل حساب المريض عند تجهيز تسجيل الدخول الآمن.')"><span class="tabicon">♙</span><span>حسابي</span></button>
-  </nav>
-</div>
+  </div></main><nav class="bottom" aria-label="التنقل الرئيسي"><i class="nav-pill" id="pill"></i><button class="tab active" data-s="home" onclick="go('home')"><span class="tabicon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg></span><span>الرئيسية</span></button><button class="tab" data-s="services" onclick="go('services')"><span class="tabicon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2"/></svg></span><span>الخدمات</span></button><button class="tab" data-s="branches" onclick="go('branches')"><span class="tabicon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span>العيادات</span></button><button class="tab" data-s="appointments" onclick="go('appointments')"><span class="tabicon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-7.5-10.2A4.2 4.2 0 0 1 12 7.3a4.2 4.2 0 0 1 7.5 2.5C19.500 15.400 12 20 12 20z"/></svg></span><span>متابعتي</span></button><button class="tab" data-s="account" onclick="go('account')"><span class="tabicon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.2 4-6 8-6s7 1.8 8 6"/></svg></span><span>حسابي</span></button></nav></div>
 <div class="page" id="page" role="dialog" aria-modal="true">
   <div class="page-head"><button class="back" onclick="closePage()" aria-label="رجوع">→</button><h3 id="pageTitle"></h3></div>
   <div class="page-body" id="pageBody"></div>
@@ -306,5 +366,192 @@ function initContent(){const A=D.A;
 
 loadData().then(initContent).catch(e=>{console.error(e);const t=document.getElementById('toast');if(t){t.textContent='تعذّر تحميل بيانات الدكتور، تأكد من الاتصال وحاول مرة أخرى';t.classList.add('show')}});
 </script>
-</body>
+
+<script>
+const SCR=['home','services','branches','appointments','account'];let cur='home';
+function movePill(){const t=document.querySelector('.tab.active'),p=document.getElementById('pill');if(!t)return;p.style.width=t.offsetWidth+'px';p.style.transform='translateX('+t.offsetLeft+'px)'}
+function show(id){if(!SCR.includes(id))return;
+ const to=document.getElementById('s-'+id);
+ if(id===cur){to.scrollTo({top:0,behavior:'smooth'});return}
+ const dir=SCR.indexOf(id)>SCR.indexOf(cur)?'in-l':'in-r';
+ document.getElementById('s-'+cur).classList.remove('active');
+ to.classList.remove('active','in-l','in-r');void to.offsetWidth;
+ [...to.children].forEach((c,i)=>c.style.setProperty('--i',Math.min(i,8)));
+ to.scrollTop=0;to.classList.add('active',dir);cur=id;
+ document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.s===id));movePill()}
+function goTo(id){go(id)}
+function activateTab(b,id){go(id==='home'?'home':id)}
+function openSearch(){go('services');setTimeout(()=>document.getElementById('searchInput2').focus(),380)}
+function filt(b,k){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===b));document.querySelectorAll('#s-branches .clinic').forEach(c=>c.style.display=(!k||c.dataset.search.includes(k))?'':'none')}
+const BS=['جراحات السمنة','جراحة المناظير','جراحة الأطفال','استشارة طبية','متابعة بعد العملية'];
+const BB=['مستشفى البسمة التخصصي','مستشفى الدرة التخصصي','مستشفى الرحاب التخصصي','مركز توليب التخصصي','مستشفى المصري التخصصي – المقطم'];
+const BD={'مستشفى البسمة التخصصي':'منوف · الاثنين','مستشفى الدرة التخصصي':'شبين الكوم · الخميس','مستشفى الرحاب التخصصي':'طنطا · الخميس','مركز توليب التخصصي':'بنها · الخميس','مستشفى المصري التخصصي – المقطم':'المقطم · الاثنين'};
+let bk={};
+function openBooking(pre,svc){bk={service:typeof svc==='string'?svc:'',branch:typeof pre==='string'?pre:''};bStep(bk.service?(bk.branch?3:2):1)}
+function pick(k,i,n){const v=(k==='service'?BS:BB)[i];if(k==='branch'&&bk.branch!==v){bk.date='';bk.dateISO=''}bk[k]=v;bStep(n)}
+const BDAY={'مستشفى البسمة التخصصي':1,'مستشفى الدرة التخصصي':4,'مستشفى الرحاب التخصصي':4,'مركز توليب التخصصي':4,'مستشفى المصري التخصصي – المقطم':1};
+const DN=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],MN=['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+function dateChips(){const wd=BDAY[bk.branch],out=[],d=new Date();d.setHours(12,0,0,0);
+ for(let i=1;i<=60&&out.length<(wd==null?10:6);i++){const x=new Date(d);x.setDate(d.getDate()+i);if(wd!=null&&x.getDay()!==wd)continue;
+  const iso=x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0'),lb=DN[x.getDay()]+' '+x.getDate()+' '+MN[x.getMonth()];
+  out.push('<button type="button" class="dt'+(bk.dateISO===iso?' on':'')+'" onclick="pickDate(this,\''+iso+'\',\''+lb+'\')"><small>'+DN[x.getDay()]+'</small><b>'+x.getDate()+'</b><small>'+MN[x.getMonth()]+'</small></button>')}
+ return out.join('')}
+function pickDate(b,iso,lb){bk.dateISO=iso;bk.date=lb;document.querySelectorAll('.dt').forEach(x=>x.classList.toggle('on',x===b))}
+function bStep(n){const prog='<div class="prog">'+[1,2,3].map(i=>'<i class="'+(i<=n?'on':'')+'"></i>').join('')+'</div>';let b,cta=null;
+ if(n===1)b=prog+'<h2 class="bt">اختر الخدمة</h2><p class="bs">ما الذي تحتاج إليه؟</p>'+BS.map((x,i)=>'<button class="opt'+(bk.service===x?' sel':'')+'" onclick="pick(\'service\','+i+',2)"><div><b>'+x+'</b></div><span class="ck"></span></button>').join('');
+ else if(n===2)b=prog+'<h2 class="bt">اختر الفرع</h2><p class="bs">اختر أقرب مكان إليك.</p>'+BB.map((x,i)=>'<button class="opt'+(bk.branch===x?' sel':'')+'" onclick="pick(\'branch\','+i+',3)"><div><b>'+x+'</b><small>'+BD[x]+'</small></div><span class="ck"></span></button>').join('');
+ else{const v=k=>esc(bk[k]||''),inp=(k,l,ph,t,m)=>'<div class="field"><label>'+l+'</label><input data-k="'+k+'" oninput="bk[this.dataset.k]=this.value" type="'+(t||'text')+'" '+(m?'inputmode="numeric" ':'')+'placeholder="'+ph+'" value="'+v(k)+'"></div>';
+ b=prog+'<h2 class="bt">بيانات المريض</h2><p class="bs">تساعد الطبيب على تجهيز استشارتك.</p><div class="sum"><span>'+esc(bk.service||'—')+'</span><span>'+esc(bk.branch||'—')+'</span></div>'
+ +inp('name','اسم المريض','اكتب اسم المريض')
+ +'<div class="row3">'+inp('age','العمر (سنة)','30','tel',1)+inp('height','الطول (سم)','170','tel',1)+inp('weight','الوزن (كجم)','80','tel',1)+'</div>'
+ +'<div class="field"><label>هل تعاني من مرض مزمن؟</label><div class="seg"><button type="button" id="chY" class="'+(bk.chronic==='yes'?'on':'')+'" onclick="setChronic(\'yes\')">نعم</button><button type="button" id="chN" class="'+(bk.chronic==='no'?'on':'')+'" onclick="setChronic(\'no\')">لا</button></div></div>'
+ +'<div id="chBox" style="display:'+(bk.chronic==='yes'?'block':'none')+'">'+inp('disease','اسم المرض','مثال: السكر، الضغط...')+'</div>'
+ +inp('phone','رقم الهاتف','01xxxxxxxxx','tel',1)
+ +'<div class="field"><label>موعد الزيارة</label><p class="bs" style="margin:0 0 10px">'+(bk.branch&&BDAY[bk.branch]!=null?'أيام استقبال هذا الفرع القادمة':'اختر اليوم المناسب')+'</p><div class="dates">'+dateChips()+'</div></div><p class="notice">هذا نموذج أولي؛ لن يتم تأكيد الموعد قبل ربط النظام بخادم الحجز الفعلي.</p>';cta='<button class="primary" onclick="bSubmit()">إرسال طلب الحجز</button>'}
+ showPage('احجز موعدك',b,cta);backTo=n>1?()=>bStep(n-1):null}
+function setChronic(v){bk.chronic=v;chY.classList.toggle('on',v==='yes');chN.classList.toggle('on',v==='no');chBox.style.display=v==='yes'?'block':'none';if(v==='no')bk.disease=''}
+function bSubmit(){const t=k=>String(bk[k]||'').trim(),n=k=>Number(bk[k]);
+ if(!t('name'))return notify('اكتب اسم المريض');
+ if(!(n('age')>=1&&n('age')<=120))return notify('اكتب العمر بشكل صحيح');
+ if(!(n('height')>=30&&n('height')<=250))return notify('اكتب الطول بالسنتيمتر');
+ if(!(n('weight')>=2&&n('weight')<=400))return notify('اكتب الوزن بالكيلوجرام');
+ if(!bk.chronic)return notify('اختر: هل تعاني من مرض مزمن؟');
+ if(bk.chronic==='yes'&&!t('disease'))return notify('اكتب اسم المرض المزمن');
+ if(!/^[0-9+() -]{8,18}$/.test(t('phone')))return notify('رقم الهاتف غير صحيح');
+ if(!t('date'))return notify('اختر يوم الزيارة');
+ try{localStorage.setItem('ahmed_z_booking',JSON.stringify({name:t('name'),age:t('age'),height:t('height'),weight:t('weight'),chronic:bk.chronic==='yes'?t('disease'):'',phone:t('phone'),service:bk.service,branch:bk.branch,date:t('date')}))}catch(e){}
+ hidePage();renderAppointment();go('appointments');notify('تم حفظ طلب تجريبي على هذا الجهاز فقط')}
+(function(){const pg=document.getElementById('page');let x0=null;
+ pg.addEventListener('touchstart',e=>{const r=pg.getBoundingClientRect(),x=e.touches[0].clientX;x0=(r.right-x<32)?x:null},{passive:true});
+ pg.addEventListener('touchend',e=>{if(x0!==null&&e.changedTouches[0].clientX-x0<-70)closePage();x0=null},{passive:true})})();
+document.getElementById('accImg').src=doctorImage;
+document.querySelector('#s-home').children.length&&[...document.getElementById('s-home').children].forEach((c,i)=>c.style.setProperty('--i',Math.min(i,8)));
+addEventListener('resize',movePill);requestAnimationFrame(movePill);if(document.fonts)document.fonts.ready.then(movePill);
+</script>
+
+<script>
+/* زر العودة في الهاتف: كل شاشة/نافذة تُسجَّل في سجل المتصفح */
+(function(){
+ const pageEl=document.getElementById('page'),modalEl=document.getElementById('modalBg');
+ const pageOpen=()=>pageEl.classList.contains('show'),modalOpen=()=>modalEl.classList.contains('show');
+ const st=()=>history.state||{s:'home',b:0};
+ const origShowPage=showPage,origHide=hidePage,origShowModal=showModal,origCloseModal=closeModal;
+ history.replaceState({s:'home',b:0},'');
+ window.go=function(id){
+  if(!SCR.includes(id))return;
+  const x=st(),ov=x.o;
+  if(pageOpen())origHide();
+  if(modalOpen())origCloseModal();
+  if(ov){history.replaceState({s:id,b:id==='home'?0:1},'')}
+  else if(id!==cur){
+   if(id==='home'){if(x.b)history.back();else history.replaceState({s:'home',b:0},'')}
+   else if(x.b)history.replaceState({s:id,b:1},'');
+   else history.pushState({s:id,b:1},'')}
+  show(id)};
+ window.goTo=window.go;
+ window.toBranches=function(){go('branches')};
+ window.showPage=function(t,b,c){const was=pageOpen();origShowPage(t,b,c);if(!was)history.pushState({s:cur,b:cur==='home'?0:1,o:'page'},'')};
+ window.hidePage=function(){const was=pageOpen();origHide();if(was&&st().o==='page')history.back()};
+ window.showModal=function(t,b){const was=modalOpen();origShowModal(t,b);if(!was)history.pushState({s:cur,b:cur==='home'?0:1,o:'modal'},'')};
+ window.closeModal=function(){const was=modalOpen();origCloseModal();if(was&&st().o==='modal')history.back()};
+ addEventListener('popstate',e=>{
+  const x=e.state||{s:'home',b:0};
+  if(modalOpen()&&x.o!=='modal'){origCloseModal();return}
+  if(pageOpen()&&x.o!=='page'){
+   if(backTo){const f=backTo;backTo=null;f();history.pushState({s:cur,b:cur==='home'?0:1,o:'page'},'');return}
+   origHide();return}
+  if(x.s&&x.s!==cur)show(x.s)});
+})();
+</script>
+<script>
+function openBMI(){curPage='bmi';backTo=null;
+ showPage('مؤشر كتلة الجسم','<div class="pbanner"><h2>احسب مؤشر كتلة جسمك</h2><p>اكتب طولك ووزنك وسيظهر لك المؤشر مباشرة.</p></div><div class="row3" style="grid-template-columns:1fr 1fr"><div class="field"><label>الطول (سم)</label><input id="bmH" type="tel" inputmode="numeric" placeholder="170" oninput="calcBMI()"></div><div class="field"><label>الوزن (كجم)</label><input id="bmW" type="tel" inputmode="numeric" placeholder="80" oninput="calcBMI()"></div></div><div id="bmiOut"></div>','<button class="primary" onclick="bookFrom(\'استشارة طبية\')">احجز استشارة</button><button class="ghost" onclick="toBranches()">العيادات والمواعيد</button>')}
+function calcBMI(){const h=+bmH.value,w=+bmW.value,o=document.getElementById('bmiOut');
+ if(!(h>=100&&h<=250&&w>=20&&w<=400)){o.innerHTML='';return}
+ const v=w/((h/100)**2),n=v.toFixed(1);
+ const c=v<18.5?['نقص في الوزن','#e3efff','#2b6cc4']:v<25?['وزن طبيعي','#e3f6ec','#1f8a57']:v<30?['زيادة في الوزن','#fff3d6','#a87414']:v<35?['سمنة – الدرجة الأولى','#ffe8d8','#b85a1f']:v<40?['سمنة – الدرجة الثانية','#ffe1dc','#b8382f']:['سمنة – الدرجة الثالثة','#ffd7d2','#a02a22'];
+ const pos=Math.max(2,Math.min(98,(v-15)/30*100));
+ o.innerHTML='<div class="bmi-res"><div class="bmi-num">'+n+'</div><span class="bmi-cat" style="background:'+c[1]+';color:'+c[2]+'">'+c[0]+'</span><div class="bmi-bar"><i class="bmi-pin" style="left:'+pos+'%"></i></div><div class="bmi-sc"><span>15</span><span>25</span><span>35</span><span>45</span></div></div><p class="bmi-note">المؤشر تقدير عام ولا يغني عن الفحص. يحدد الدكتور الخيار المناسب لحالتك بعد الاستشارة والتقييم.</p>'}
+</script><script>
+const FUK='ahmed_z_op',FWK='ahmed_z_weights';
+const ld=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}},sv=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const MED=[{n:'Ceftriaxone 1gm vial',d:'1 جم مرة يوميًا · عضل أو وريد',t:'3 أيام',x:3},{n:'Clexane 40 mg',d:'40 مجم مرة يوميًا',t:'15 يومًا',x:15,i:'هام جدًا لمنع حدوث جلطات'},{n:'Controloc 40 mg tab',d:'قرص مرتين يوميًا بعد الأكل',t:'لمدة شهر',x:30},{n:'Spasmofree Tab',d:'2 قرص 3 مرات يوميًا',t:'أسبوعان',x:14},{n:'Spasmofree amp',d:'عضل أو وريد',t:'عند اللزوم'}];
+const SUP=[['Limitless men or women Caps','كبسولة يوميًا'],['Whey Protein Powder','ميكيال على ماء أو عصير يوميًا (اختياري)'],['Devarol 200 00 U.i Amp','عضل كل شهر، أو بالفم على ماء أو عصير أو لبن']];
+const PRN=[['Danset 8mg amp','للترجيع · عضل عند اللزوم'],['Injectamol I.V solution','مسكن · محلول وريدي عند اللزوم'],['Gastreg Amp','للانتفاخ · عضل عند اللزوم']];
+const DIET=[['الأسبوع الأول',['سوائل دافئة','جميع أنواع عصائر البيور (ماعدا الموز والمانجا والتين والعنب والبلح)','على الأقل 3 لتر مياه معدنية في اليوم','شوربة فراخ أو لحمة مصفاة']],
+['الأسبوع الثاني',['نظام الأسبوع الأول مضافًا إليه','زبادي ولبن خالي الدسم','شوربة عدس بدون جزر مصفاة']],
+['من الأسبوع الثالث',['فراخ مسلوقة أو مشوية','أو لحمة مسلوقة أو مشوية','أو سمك مسلوق أو مشوي','أنواع الخضار بالكامل (ماعدا البطاطس والبطاطا والجزر)','أنواع الفاكهة بالكامل (ماعدا الموز والمانجا والتين والعنب والبلح)','تونة بدون زيت','جبنة قريش','بيض مسلوق']],
+['الممنوعات',['أنواع الأرز بالكامل','أنواع المكرونة بالكامل (زي لسان عصفور وشعرية وأنواع المكرونات)','أنواع السكريات والحلويات بالكامل','العيش وأي معجنات بالكامل','أنواع المشروبات الغازية بالكامل','البطاطس والبطاطا والجزر','المانجا والموز والتين والعنب والبلح والكاكا'],'no'],
+['تعليمات هامة',['الالتزام بالتعليمات أحد عوامل السلامة والنجاح، ولا يجوز التهاون فيها لعدم حدوث مخاطر','الهدف الأساسي من هذا النظام هو راحة المعدة وإعطاؤها الفرصة الكاملة للالتئام والعودة لطبيعتها','تُتناول السوائل بكميات صغيرة في رشفات (بمعدل معلقة كبيرة كل دقيقتين)','في حال حدوث أي تغييرات أو الشعور بتعب، برجاء العودة للطبيب لإبلاغكم باللازم','المشروبات هي أساس التغذية في هذه المرحلة المبدئية من التعافي','اتباع التعليمات والنظام الغذائي الخاص بك بطريقة صحيحة يوفر عليك التعب ويسرّع من نسبة شفائك'],'tx']];
+const PH=['01016742503','01044181317','01028609185','01044186837'];
+let dietI=0,W=ld(FWK,{});
+function opInfo(){const o=ld(FUK,null);if(!o)return null;const t=new Date();t.setHours(0,0,0,0);return{diff:Math.max(0,Math.round((t-new Date(o.y,o.m,o.d))/864e5))}}
+function sel(id,a,ph){return '<select id="'+id+'" class="sl"><option value="">'+ph+'</option>'+a.map(x=>'<option value="'+x[0]+'">'+x[1]+'</option>').join('')+'</select>'}
+function saveOp(){const d=+opD.value,m=opM.value,y=+opY.value;if(!d||m===''||!y)return notify('اختر اليوم والشهر والسنة');const x=new Date(y,+m,d);if(x.getDate()!==d||x>new Date())return notify('تاريخ غير صحيح');sv(FUK,{y,m:+m,d});renderFU()}
+function clearOp(){try{localStorage.removeItem(FUK)}catch(e){}renderFU()}
+function dietP(i){const x=DIET[i];return '<ul class="dl '+(x[2]||'')+'">'+x[1].map(t=>'<li>'+t+'</li>').join('')+'</ul>'}
+function dietSel(i,b){dietI=i;document.querySelectorAll('#dietC .chip').forEach(c=>c.classList.toggle('on',c===b));document.getElementById('dietP').innerHTML=dietP(i)}
+function setW(k,v){W[k]=String(v).replace(/[^0-9.]/g,'');sv(FWK,W);wRender()}
+function wRender(){const e=document.getElementById('wsum');if(!e)return;const p=+W.prev,h=(+W.height)/100,pts=[];if(p>0)pts.push([0,p]);for(let i=0;i<12;i++){const v=+W['m'+i];if(v>0)pts.push([i+1,v])}
+ if(pts.length<2){e.innerHTML='<p class="bs" style="margin:8px 0 0">اكتب وزنك قبل العملية ووزن الشهر الأول ليظهر تقدمك.</p>';return}
+ const last=pts[pts.length-1][1],lost=p>0?p-last:0,bmi=h>0.5?(last/(h*h)).toFixed(1):null,vs=pts.map(x=>x[1]),mn=Math.min(...vs)-2,mx=Math.max(...vs)+2,X=i=>16+i*(268/12),Y=v=>10+(mx-v)/(mx-mn)*100;
+ e.innerHTML='<div class="wst"><div><b>'+Math.abs(lost).toFixed(1)+'</b><small>كجم '+(lost>=0?'نزلت':'زيادة')+'</small></div><div><b>'+last+'</b><small>وزنك الأخير</small></div>'+(bmi?'<div><b>'+bmi+'</b><small>مؤشر الكتلة</small></div>':'')+'</div><svg viewBox="0 0 300 130" class="wch"><polyline points="'+pts.map(([i,v])=>X(i).toFixed(1)+','+Y(v).toFixed(1)).join(' ')+'" fill="none" stroke="#216de0" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>'+pts.map(([i,v])=>'<circle cx="'+X(i).toFixed(1)+'" cy="'+Y(v).toFixed(1)+'" r="3.5" fill="#fff" stroke="#216de0" stroke-width="2"/>').join('')+'<text x="16" y="124" font-size="9" fill="#8b97a8">قبل</text><text x="284" y="124" font-size="9" fill="#8b97a8" text-anchor="end">شهر 12</text></svg>'}
+function renderFU(){const el=document.getElementById('fu');if(!el)return;const inf=opInfo();if(inf)dietI=inf.diff<7?0:inf.diff<14?1:2;
+ if(!W.prev&&!W.age&&!W.height){const b=ld('ahmed_z_booking',null);if(b){W.age=b.age||'';W.height=b.height||'';W.prev=b.weight||''}}
+ const A=(h,t)=>'<div class="section"><div class="section-title"><h3>'+h+'</h3></div>'+t+'</div>',row=(n,d,t,c)=>'<div class="mrow'+(c||'')+'"><div><b dir="ltr">'+n+'</b><small>'+d+'</small></div>'+(t?'<span>'+t+'</span>':'')+'</div>';
+ let j;
+ if(!inf){const yr=new Date().getFullYear();j='<div class="jr"><b>متى أجريت العملية؟</b><p>حدّد التاريخ ليعرض لك التطبيق برنامج اليوم: الأدوية المتبقية والمرحلة الغذائية.</p><div class="row3">'+sel('opD',Array.from({length:31},(_,i)=>[i+1,i+1]),'اليوم')+sel('opM',MN.map((m,i)=>[i,m]),'الشهر')+sel('opY',[[yr,yr],[yr-1,yr-1]],'السنة')+'</div><button class="primary full" style="margin-top:12px" onclick="saveOp()">اعرض برنامجي</button></div>'}
+ else{const d=inf.diff,act=MED.filter(m=>m.x&&m.x>d).map(m=>'<li><b>'+m.n+'</b><span>متبقي '+(m.x-d)+' يوم</span></li>').join('');
+  j='<div class="jr on"><small>برنامج اليوم</small><h4>اليوم '+d+' بعد العملية · الأسبوع '+(Math.floor(d/7)+1)+'</h4><div class="bar"><i style="width:'+Math.min(100,d/90*100)+'%"></i></div><p>المرحلة الغذائية: <b>'+DIET[dietI][0]+'</b>'+(d>90?' (انتهت المدة المحددة، اتبع توجيهات الطبيب)':'')+'</p>'+(act?'<ul class="al">'+act+'</ul>':'<p>لا توجد أدوية بمدة محددة متبقية.</p>')+(d>=14?'<p>بدأ موعد المكملات الغذائية (بعد الأسبوع الثاني).</p>':'')+'<button class="lnk" onclick="clearOp()">تغيير تاريخ العملية</button></div>'}
+ const wi=(k,l,ph)=>'<div class="field"><label>'+l+'</label><input type="tel" inputmode="decimal" placeholder="'+ph+'" value="'+(W[k]||'')+'" onchange="setW(\''+k+'\',this.value)"></div>';
+ el.innerHTML='<div class="section"><div class="em"><b>أعراض مفاجئة أو اضطرابات؟</b><p>برجاء التواصل مع د. أحمد الزلباني شخصيًا.</p><div class="cb"><a class="cbtn" href="tel:01091532139" aria-label="اتصال بالدكتور"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>اتصال</span></a><a class="cbtn wa" href="https://wa.me/201091532139" aria-label="واتساب الدكتور"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg><span>واتساب</span></a></div></div></div>'
+ +A('برنامجي اليوم',j)
+ +A('الأدوية','<details class="acc" open><summary>بعد العملية مباشرة</summary><div class="acc-body">'+MED.map(m=>row(m.n,m.d+(m.i?'<br><b style="color:#d6453b">'+m.i+'</b>':''),m.t,m.i?' imp':'')).join('')+'</div></details><details class="acc"><summary>المكملات الغذائية (بعد الأسبوع الثاني)</summary><div class="acc-body">'+SUP.map(x=>row(x[0],x[1])).join('')+'</div></details><details class="acc"><summary>عند اللزوم</summary><div class="acc-body">'+PRN.map(x=>row(x[0],x[1])).join('')+'</div></details>')
+ +A('النظام الغذائي','<div class="chips" id="dietC" style="margin:0 -23px 4px">'+DIET.map((x,i)=>'<button class="chip'+(i===dietI?' on':'')+'" onclick="dietSel('+i+',this)">'+x[0]+'</button>').join('')+'</div><div id="dietP">'+dietP(dietI)+'</div>')
+ +A('متابعة وزني','<div id="wt"></div>')
+ +'<p class="disc" style="padding:0 23px">هذا البرنامج من إعداد مركز د. أحمد الزلباني. مواعيد الأدوية تُحسب من يوم العملية، والتزم دائمًا بتوجيهات طبيبك.</p>';
+ wRender()}
+renderFU();
+</script><script>
+const WTK='ahmed_z_wt';let WT=ld(WTK,{});if(!WT.log)WT.log=[];
+const isoD=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const dfm=s=>{const a=s.split('-');return (+a[2])+' '+MN[a[1]-1]+' '+a[0]},dsh=s=>{const a=s.split('-');return (+a[2])+' '+MN[a[1]-1]};
+const num=v=>parseFloat(String(v).replace(',','.'));
+const bcat=v=>v<18.5?'نقص في الوزن':v<25?'وزن طبيعي':v<30?'زيادة في الوزن':v<35?'سمنة – الدرجة الأولى':v<40?'سمنة – الدرجة الثانية':'سمنة – الدرجة الثالثة';
+function ssel(id,a,v){return '<select id="'+id+'" class="sl">'+a.map(x=>'<option value="'+x[0]+'"'+(x[0]===v?' selected':'')+'>'+x[1]+'</option>').join('')+'</select>'}
+function wChart(P,goal){const W0=320,H0=156,pad=16,vs=P.map(p=>p.w).concat(goal>0?[goal]:[]),mn=Math.min(...vs)-2,mx=Math.max(...vs)+2,n=P.length,X=i=>pad+i*((W0-2*pad)/(n-1)),Y=v=>22+(mx-v)/(mx-mn)*(H0-60),B=H0-26;
+ const d=P.map((p,i)=>(i?'L':'M')+X(i).toFixed(1)+' '+Y(p.w).toFixed(1)).join(' '),l=n-1;
+ return '<svg viewBox="0 0 '+W0+' '+H0+'" style="direction:ltr"><defs><linearGradient id="wg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#216de0" stop-opacity=".25"/><stop offset="1" stop-color="#216de0" stop-opacity="0"/></linearGradient></defs>'
+ +[0,1,2].map(i=>'<line x1="'+pad+'" x2="'+(W0-pad)+'" y1="'+(22+i*(B-22)/2)+'" y2="'+(22+i*(B-22)/2)+'" stroke="#eef1f7"/>').join('')
+ +(goal>0?'<line x1="'+pad+'" x2="'+(W0-pad)+'" y1="'+Y(goal)+'" y2="'+Y(goal)+'" stroke="#2fb985" stroke-width="1.5" stroke-dasharray="4 4"/><text x="'+(W0-pad)+'" y="'+(Y(goal)-4)+'" font-size="9" fill="#1f8a57" text-anchor="end">الهدف '+goal+'</text>':'')
+ +'<path d="'+d+' L'+X(l).toFixed(1)+' '+B+' L'+X(0).toFixed(1)+' '+B+' Z" fill="url(#wg)"/><path d="'+d+'" fill="none" stroke="#216de0" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>'
+ +P.map((p,i)=>'<circle cx="'+X(i).toFixed(1)+'" cy="'+Y(p.w).toFixed(1)+'" r="'+(i===l?5:3.2)+'" fill="'+(i===l?'#216de0':'#fff')+'" stroke="#216de0" stroke-width="2"/>').join('')
+ +'<text x="'+X(l)+'" y="'+(Y(P[l].w)-9)+'" font-size="11" font-weight="800" fill="#18263b" text-anchor="'+(n>1?'end':'middle')+'">'+P[l].w+'</text>'
+ +'<text x="'+pad+'" y="'+(H0-8)+'" font-size="10" fill="#8b97a8">'+P[0].l+'</text><text x="'+(W0-pad)+'" y="'+(H0-8)+'" font-size="10" fill="#8b97a8" text-anchor="end">'+P[l].l+'</text></svg>'}
+function wRender(){const e=document.getElementById('wt');if(!e)return;
+ if(!WT.start){const b=ld('ahmed_z_booking',null);if(b&&b.weight){WT.start=b.weight;WT.height=WT.height||b.height||'';WT.age=WT.age||b.age||''}}
+ const st=num(WT.start);
+ if(!(st>0)){e.innerHTML='<div class="wt-empty"><div class="wt-ic">⚖</div><b>ابدأ متابعة وزنك</b><p>سجّل وزنك قبل العملية وطولك، ثم أضف وزنك بشكل دوري وشاهد تقدمك في رسم بياني واضح.</p><button class="primary full" onclick="wtSetup()">ابدأ الآن</button></div>';return}
+ const L=WT.log.map((x,i)=>({d:x.d,w:x.w,i})).sort((a,b)=>a.d<b.d?-1:1),h=num(WT.height)/100,goal=num(WT.goal),cur=L.length?L[L.length-1].w:st,lost=st-cur,pct=Math.abs(lost)/st*100,bmi=h>0.5?cur/(h*h):0;
+ const gp=goal>0&&goal<st?Math.max(0,Math.min(100,(st-cur)/(st-goal)*100)):null;
+ const P=[{w:st,l:'قبل العملية'}].concat(L.map(x=>({w:x.w,l:dsh(x.d)})));
+ let h1='<div class="wt-hero"><small>وزنك الحالي</small><div class="wt-big"><b>'+cur+'</b><span>كجم</span></div><span class="wt-d'+(lost<0?' up':'')+'">'+(lost>=0?'↓ نزلت ':'↑ زيادة ')+Math.abs(lost).toFixed(1)+' كجم · '+pct.toFixed(1)+'%</span>'
+ +'<div class="wt-st"><div><b>'+st+'</b><small>قبل العملية</small></div><div><b>'+(bmi?bmi.toFixed(1):'—')+'</b><small>'+(bmi?bcat(bmi):'مؤشر الكتلة')+'</small></div><div><b>'+(goal>0?goal:'—')+'</b><small>الهدف</small></div></div>'
+ +(gp!==null?'<div class="wt-pr">'+Math.round(gp)+'% من الطريق إلى هدفك<div class="bar"><i style="width:'+gp+'%"></i></div></div>':'')+'</div>';
+ const chart=P.length>1?'<div class="wt-card">'+wChart(P,goal)+'</div>':'';
+ const rows=L.slice().reverse().map(x=>{const k=L.findIndex(y=>y.i===x.i),prev=k?L[k-1].w:st,dl=x.w-prev;return '<div class="wl"><div><b>'+dfm(x.d)+'</b><small class="'+(dl<=0?'dn':'up')+'">'+(dl===0?'بدون تغيير':(dl<0?'↓ ':'↑ ')+Math.abs(dl).toFixed(1)+' كجم')+'</small></div><strong>'+x.w+' كجم</strong><button onclick="wtDel('+x.i+')" aria-label="حذف">×</button></div>'}).join('');
+ e.innerHTML=h1+chart+'<div class="wt-act"><button class="primary" onclick="wtAdd()">+ تسجيل وزن جديد</button><button class="ghost" onclick="wtSetup()">بياناتي</button></div>'+(rows?'<div class="fu-t">سجل القياسات</div>'+rows:'<p class="bs" style="margin:12px 0 0">أضف أول قياس لك ليظهر التقدم في الرسم البياني.</p>')}
+function wtAdd(){showModal('تسجيل وزن','');const t=new Date(),yr=t.getFullYear();
+ document.getElementById('modalBody').innerHTML='<div class="field"><label>الوزن (كجم)</label><input id="wtW" type="tel" inputmode="decimal" placeholder="مثال: 98.5"></div><div class="fu-t" style="margin-top:6px">التاريخ</div><div class="row3">'+ssel('wD',Array.from({length:31},(_,i)=>[String(i+1),i+1]),String(t.getDate()))+ssel('wM',MN.map((m,i)=>[String(i),m]),String(t.getMonth()))+ssel('wY',[[String(yr),yr],[String(yr-1),yr-1]],String(yr))+'</div><button class="primary full" style="margin-top:14px" onclick="wtCommit()">حفظ</button>'}
+function wtCommit(){const w=num(wtW.value),d=+wD.value,m=+wM.value,y=+wY.value,x=new Date(y,m,d);
+ if(!(w>=20&&w<=400))return notify('اكتب وزنًا صحيحًا بالكيلوجرام');if(x.getDate()!==d||x>new Date())return notify('تاريخ غير صحيح');
+ WT.log.push({d:isoD(x),w:Math.round(w*10)/10});sv(WTK,WT);closeModal();wRender();notify('تم تسجيل وزنك')}
+function wtDel(i){WT.log.splice(i,1);sv(WTK,WT);wRender()}
+function wtSetup(){showModal('بياناتي','');const f=(id,l,ph,v)=>'<div class="field"><label>'+l+'</label><input id="'+id+'" type="tel" inputmode="decimal" placeholder="'+ph+'" value="'+(v||'')+'"></div>';
+ document.getElementById('modalBody').innerHTML=f('sW','الوزن قبل العملية (كجم)','مثال: 110',WT.start)+'<div class="row3" style="grid-template-columns:1fr 1fr">'+f('sH','الطول (سم)','170',WT.height)+f('sA','السن','30',WT.age)+'</div>'+f('sG','الوزن المستهدف (اختياري)','مثال: 80',WT.goal)+'<button class="primary full" style="margin-top:6px" onclick="wtSetCommit()">حفظ</button>'}
+function wtSetCommit(){const w=num(sW.value),hh=num(sH.value),g=num(sG.value);
+ if(!(w>=20&&w<=400))return notify('اكتب الوزن قبل العملية');if(sH.value&&!(hh>=100&&hh<=250))return notify('اكتب الطول بالسنتيمتر');if(sG.value&&!(g>=20&&g<w))return notify('الهدف يجب أن يكون أقل من وزنك الحالي');
+ WT.start=String(w);WT.height=sH.value?String(hh):'';WT.age=sA.value.trim();WT.goal=sG.value?String(g):'';sv(WTK,WT);closeModal();wRender()}
+wRender();
+</script></body>
 </html>
