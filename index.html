@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#f5f8ff">
+<title>د. أحمد الزلباني | الرئيسية</title>
+<style>
+:root{--blue:#216de0;--ink:#18263b;--muted:#7b8798;--line:#edf0f6;--bg:#f5f7fc;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#e9eef7;color:var(--ink);font-family:"Segoe UI",Tahoma,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.app{width:100%;max-width:430px;min-height:100dvh;margin:0 auto;background:linear-gradient(180deg,#f2f6ff 0%,#fff 60%);position:relative;padding-bottom:88px;overflow:hidden}
+.top{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 23px;font-size:12px;color:#111827}
+.status-icons{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700}.battery{border:1.5px solid #27364a;border-radius:4px;width:22px;height:11px;position:relative}.battery:after{content:"";position:absolute;right:2px;top:2px;bottom:2px;width:12px;background:#26374c;border-radius:1px}.signal{letter-spacing:-3px;font-size:17px}.top-right{display:flex;align-items:center;gap:6px}
+.header{padding:22px 24px 0;display:flex;justify-content:space-between;align-items:center}.hello h1{font-size:25px;line-height:1.35;margin:0 0 5px;font-weight:750;letter-spacing:-.6px}.hello p{margin:0;color:#778397;font-size:14px}.icon-btn{border:0;background:transparent;width:38px;height:38px;border-radius:13px;display:grid;place-items:center;color:#304766;font-size:22px;cursor:pointer}.search{margin:22px 23px 19px;height:52px;border:1px solid #e8edf5;border-radius:14px;background:#fff;box-shadow:0 4px 13px rgba(32,62,112,.035);display:flex;align-items:center;gap:11px;padding:0 15px;color:#8893a3}.search span{font-size:21px}.search input{border:0;outline:0;width:100%;font:inherit;font-size:13px;background:transparent;color:var(--ink)}.search input::placeholder{color:#8994a5}
+.quick-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;padding:0 22px}.quick{min-height:105px;background:#fff;border:1px solid #f0f2f7;border-radius:17px;box-shadow:0 5px 14px rgba(35,60,103,.045);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;text-align:center;padding:10px 4px;cursor:pointer;color:var(--ink)}.qicon{height:43px;width:43px;border-radius:14px;display:grid;place-items:center;font-size:23px;font-weight:700}.qicon.blue{background:#e7f0ff;color:#2474e8}.qicon.green{background:#e5f7ee;color:#1ba46c}.qicon.purple{background:#f0eaff;color:#8056e8}.qicon.red{background:#ffedf0;color:#e64e67}.quick span:last-child{font-size:11px;font-weight:650;line-height:1.35}
+.hero{margin:22px 22px 25px;min-height:165px;background:linear-gradient(115deg,#e6efff,#d9e8ff);border:1px solid #e0eaff;border-radius:19px;display:flex;position:relative;overflow:hidden}.hero-copy{padding:20px 18px 17px;position:relative;z-index:2;width:60%}.hero h2{font-size:20px;line-height:1.42;margin:0 0 8px;letter-spacing:-.35px}.hero p{font-size:12px;color:#738197;line-height:1.6;margin:0 0 13px}.primary{border:0;border-radius:10px;background:var(--blue);color:#fff;padding:10px 13px;font-size:12px;font-weight:700;box-shadow:0 5px 12px rgba(33,109,224,.18);cursor:pointer}.hero-photo{position:absolute;bottom:0;left:0;width:48%;height:100%;display:flex;align-items:end;justify-content:center}.hero-photo:before{content:"";position:absolute;bottom:-27px;left:-7px;width:180px;height:180px;background:#c5dcff;border-radius:50%}.hero-photo img{position:relative;width:100%;height:94%;object-fit:cover;object-position:top center;mask-image:linear-gradient(to bottom,#000 88%,transparent 100%)}.online{position:absolute;left:11px;top:12px;background:rgba(255,255,255,.86);border-radius:30px;padding:5px 8px;font-size:10px;display:flex;align-items:center;gap:5px;z-index:2}.online i{width:7px;height:7px;background:#16b978;border-radius:50%}
+.section{padding:0 23px;margin-bottom:24px}.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.section-title h3{font-size:17px;margin:0;font-weight:750;letter-spacing:-.25px}.section-title button{border:0;background:transparent;color:#216de0;font-weight:700;font-size:12px;cursor:pointer}.specialties{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.specialty{text-align:center;min-width:0;cursor:pointer}.spec-icon{width:49px;height:49px;border-radius:50%;display:grid;place-items:center;font-size:23px;margin:0 auto 8px}.spec-icon.pink{background:#ffedf1;color:#e85871}.spec-icon.teal{background:#e6f7f6;color:#24a8a6}.spec-icon.lilac{background:#f0edff;color:#7e68dd}.spec-icon.orange{background:#fff2e6;color:#e88a35}.spec-icon.sky{background:#e9f4ff;color:#328dd0}.specialty span{font-size:10px;font-weight:650;display:block;white-space:nowrap}
+.appointment{background:#fff;border:1px solid #edf0f6;border-radius:16px;box-shadow:0 5px 16px rgba(35,60,103,.05);padding:12px;display:flex;align-items:center;gap:11px;cursor:pointer}.avatar{width:62px;height:68px;flex-shrink:0;border-radius:12px;overflow:hidden;background:#edf3fb}.avatar img{width:100%;height:100%;object-fit:cover;object-position:top center}.appt-info{flex:1;min-width:0}.appt-info b{font-size:13px;display:block;margin-bottom:3px}.appt-info small{display:block;color:#7d899a;font-size:11px;margin-bottom:8px}.appt-meta{display:flex;gap:10px;align-items:center;color:#7d899a;font-size:10px;flex-wrap:wrap}.status{background:#e7f8ee;color:#27935d;border-radius:7px;padding:6px 8px;font-size:10px;font-weight:700;white-space:nowrap;align-self:flex-start}
+.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;height:79px;padding:8px 13px calc(8px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr);background:rgba(255,255,255,.96);backdrop-filter:blur(15px);border-top:1px solid #edf0f5;z-index:10}.tab{border:0;background:transparent;color:#929aaa;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:10px;cursor:pointer}.tab .tabicon{font-size:21px;line-height:1}.tab.active{color:#216de0;font-weight:750}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(18,34,58,.45);z-index:20;align-items:flex-end;justify-content:center}.modal-bg.show{display:flex}.modal{width:100%;max-width:430px;background:white;border-radius:24px 24px 0 0;padding:24px 22px calc(22px + env(safe-area-inset-bottom));max-height:85dvh;overflow:auto}.modal-head{display:flex;justify-content:space-between;align-items:center}.modal h3{margin:0;font-size:20px}.close{border:0;background:#f1f4f9;border-radius:10px;width:36px;height:36px;font-size:22px;color:#34445c}.field{display:grid;gap:7px;margin-top:14px}.field label{font-size:12px;font-weight:700}.field input,.field select{border:1px solid #e1e7f0;border-radius:12px;padding:12px;font:inherit;outline:none;background:#fbfcff}.field input:focus,.field select:focus{border-color:#7eadef}.full{width:100%;margin-top:18px;padding:13px}.notice{font-size:11px;color:#7d899a;line-height:1.7;margin-top:10px}.toast{position:fixed;bottom:90px;left:50%;transform:translate(-50%,10px);opacity:0;background:#172b47;color:#fff;border-radius:12px;padding:11px 15px;font-size:12px;z-index:30;transition:.2s;white-space:nowrap}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(min-width:600px){body{padding:25px 0}.app{min-height:850px;border-radius:28px;box-shadow:0 20px 70px rgba(30,55,100,.12)}.bottom{bottom:25px;border-radius:0 0 28px 28px}.hero{min-height:175px}}
+@media(max-width:350px){.header{padding-inline:18px}.quick-grid{padding-inline:15px;gap:6px}.quick span:last-child{font-size:10px}.hero{margin-inline:15px}.hero-copy{padding:16px 13px;width:63%}.hero h2{font-size:18px}.hero-photo{width:45%}.section{padding-inline:16px}.specialty span{font-size:9px}.spec-icon{width:43px;height:43px}}
+
+/* Refinement requested: no simulated status bar; doctor's photo is the main hero visual */
+.top{display:none!important}
+
+/* Doctor photo in hero: replaces the old logo, blended into the card */
+.hero-photo:before{display:none!important}
+.hero-photo{width:46%!important}
+.hero-photo img{width:100%!important;height:100%!important;max-height:none!important;object-fit:cover!important;object-position:50% 8%!important;-webkit-mask-image:linear-gradient(to right,#000 0%,#000 62%,transparent 100%);mask-image:linear-gradient(to right,#000 0%,#000 62%,transparent 100%)}
+.avatar img{object-fit:cover;object-position:center top}
+
+
+/* Clinics & consultation days */
+.clinics-intro{font-size:12.5px;line-height:1.9;color:#65748a;margin:-4px 0 14px}
+.clinics{display:grid;gap:11px}
+.clinic{background:#fff;border:1px solid #edf0f6;border-radius:16px;box-shadow:0 5px 16px rgba(35,60,103,.05);padding:13px 13px 12px}
+.clinic-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.clinic-top b{display:block;font-size:14px;line-height:1.5;margin-top:3px}
+.clinic-city{font-size:11px;font-weight:700;color:#216de0}
+.day-chip{flex-shrink:0;background:#e7f8ee;color:#1f8a57;border-radius:10px;padding:6px 10px;text-align:center;font-size:13px;font-weight:800;line-height:1.3}
+.day-chip small{display:block;font-size:9px;font-weight:600;color:#4d9c78}
+.clinic-addr{font-size:11.5px;line-height:1.8;color:#7d899a;margin:8px 0 10px}
+.clinic-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.clinic-actions .primary{padding:9px 12px}
+.map-link{font-size:11.5px;font-weight:700;color:#216de0;text-decoration:none;padding:8px 4px}
+.clinic-cta{margin-top:14px;background:linear-gradient(120deg,#e8f0ff,#d9e8ff);border:1px solid #e0eaff;border-radius:16px;padding:16px;text-align:center}
+.clinic-cta h4{margin:0 0 6px;font-size:15px}
+.clinic-cta p{margin:0 0 12px;font-size:12px;line-height:1.8;color:#65748a}
+.clinic-cta small{display:block;margin-top:10px;font-size:11px;color:#7d899a}
+
+
+/* Doctor content: about, procedures, detail pages */
+.about-card{background:#fff;border:1px solid #edf0f6;border-radius:18px;box-shadow:0 5px 16px rgba(35,60,103,.05);padding:14px;display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:start}
+.about-card .avatar{width:70px;height:78px;border-radius:14px}
+.about-card h4{margin:0 0 2px;font-size:15px}
+.about-card .role{font-size:11.5px;color:#216de0;font-weight:700;line-height:1.6}
+.exp-chip{display:inline-block;margin-top:6px;background:#e7f8ee;color:#1f8a57;border-radius:8px;padding:4px 9px;font-size:10.5px;font-weight:800}
+.about-card p{grid-column:1/-1;margin:2px 0 0;font-size:12px;line-height:1.9;color:#65748a;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.about-card .more{grid-column:1/-1;border:0;background:transparent;color:#216de0;font-weight:800;font-size:12px;text-align:start;padding:0;cursor:pointer}
+.procs-label{font-size:13px;font-weight:800;margin:18px 0 10px;color:#34445c}
+.procs{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 12px;margin:0 -23px;padding-inline:23px;scroll-snap-type:x proximity;scrollbar-width:none}
+.procs::-webkit-scrollbar{display:none}
+.proc{flex:0 0 138px;scroll-snap-align:start;background:#fff;border:1px solid #edf0f6;border-radius:16px;box-shadow:0 5px 14px rgba(35,60,103,.05);padding:12px;text-align:start;cursor:pointer;display:flex;flex-direction:column;gap:8px;color:var(--ink);font:inherit}
+.proc .spec-icon{margin:0;width:42px;height:42px;font-size:20px}
+.proc b{font-size:13px;line-height:1.5}
+.proc small{font-size:10.5px;color:#7d899a;margin-top:-4px}
+.why-list{display:grid;gap:9px;margin-top:12px}
+.why-item{background:#fff;border:1px solid #edf0f6;border-radius:14px;padding:11px 12px;display:flex;gap:10px;align-items:flex-start}
+.why-item i{flex:0 0 24px;height:24px;border-radius:50%;background:#e7f8ee;color:#1f8a57;display:grid;place-items:center;font-style:normal;font-size:13px;font-weight:800;margin-top:1px}
+.why-item b{display:block;font-size:13px}.why-item span{font-size:11.5px;line-height:1.8;color:#7d899a}
+.tagline{font-size:12px;font-weight:800;color:#216de0;margin:14px 0 0;text-align:center}
+.disc{font-size:10.5px;line-height:1.9;color:#8b97a8;margin:12px 0 0;text-align:center}
+.page{position:fixed;top:0;bottom:0;left:50%;width:100%;max-width:430px;background:#f6f8fd;z-index:15;display:none;flex-direction:column;transform:translateX(-50%)}
+.page.show{display:flex;animation:pg .22s ease-out}
+@keyframes pg{from{opacity:0;transform:translateX(-50%) translateY(14px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.page-head{display:flex;align-items:center;gap:10px;padding:calc(12px + env(safe-area-inset-top,0px)) 16px 12px;background:rgba(255,255,255,.96);border-bottom:1px solid #edf0f5}
+.page-head h3{margin:0;font-size:16px;flex:1}
+.back{border:0;background:#f1f4f9;border-radius:11px;width:38px;height:38px;font-size:19px;color:#34445c;cursor:pointer}
+.page-body{flex:1;overflow-y:auto;padding:16px 18px 24px;-webkit-overflow-scrolling:touch}
+.pbanner{border-radius:20px;padding:18px;background:linear-gradient(120deg,#e8f0ff,#d9e8ff);border:1px solid #e0eaff;margin-bottom:14px}
+.pbanner .spec-icon{width:50px;height:50px;font-size:24px;margin:0 0 10px}
+.pbanner h2{margin:0 0 8px;font-size:18px;line-height:1.5}
+.pbanner p{margin:0 0 8px;font-size:12.5px;line-height:1.9;color:#53627a}
+.acc{background:#fff;border:1px solid #edf0f6;border-radius:15px;margin-bottom:9px;overflow:hidden}
+.acc summary{list-style:none;cursor:pointer;padding:13px 14px;font-weight:800;font-size:13.5px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary:after{content:"⌄";font-size:18px;color:#216de0;transition:transform .2s}
+.acc[open] summary:after{transform:rotate(180deg)}
+.acc-body{padding:0 14px 13px}
+.acc-body p{margin:0 0 9px;font-size:12.5px;line-height:2;color:#53627a}
+.acc-body h5{margin:10px 0 4px;font-size:12.5px;color:#216de0}
+.acc-body ul{margin:0 0 9px;padding:0 18px 0 0}
+.acc-body li{font-size:12.5px;line-height:1.95;color:#53627a;margin-bottom:3px}
+.acc-body li b{color:#1d2b44}
+.page-cta{display:flex;gap:9px;padding:11px 16px calc(11px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.97);border-top:1px solid #edf0f5}
+.page-cta .primary{flex:1.4;padding:12px}
+.page-cta .ghost{flex:1;border:1px solid #d5e2f8;background:#fff;color:#216de0;border-radius:10px;font-weight:700;font-size:12px;cursor:pointer;padding:12px}
+.plist{display:grid;gap:10px;margin-bottom:14px}
+.prow{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #edf0f6;border-radius:16px;padding:12px;cursor:pointer;color:var(--ink);font:inherit;text-align:start;width:100%}
+.prow .spec-icon{margin:0;flex-shrink:0}
+.prow div b{display:block;font-size:13.5px}.prow div small{font-size:11px;color:#7d899a}
+.prow .chev{margin-inline-start:auto;color:#8b97a8;font-size:21px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0 4px}
+.stat{background:#fff;border-radius:13px;padding:10px 4px;text-align:center;border:1px solid #e3ecfb}
+.stat b{display:block;font-size:18px;color:#216de0}.stat small{font-size:10px;color:#7d899a;font-weight:700}
+.vm{display:grid;gap:9px;margin-bottom:10px}
+.vm div{background:#fff;border:1px solid #edf0f6;border-radius:15px;padding:13px 14px}
+.vm h5{margin:0 0 5px;font-size:13.5px;color:#216de0}.vm p{margin:0;font-size:12.5px;line-height:1.95;color:#53627a}
+.pphoto{width:92px;height:102px;border-radius:18px;overflow:hidden;float:inline-end;margin-inline-start:12px;background:#edf3fb}.pphoto img{width:100%;height:100%;object-fit:cover;object-position:top}
+
+/* Compact hero */
+.hero{min-height:172px!important;margin-top:18px!important;margin-bottom:20px!important}
+.hero-copy{padding:16px 16px 14px!important}
+.hero h2{font-size:19px!important;margin-bottom:6px!important}
+.hero p{margin-bottom:10px!important}
+.hero-photo img{object-position:50% 0%!important}
+@media(max-width:350px){.hero{min-height:165px!important}}
+.hero{min-height:235px;margin-top:22px;background:linear-gradient(120deg,#e8f0ff 0%,#d9e8ff 100%)}
+.hero-copy{width:58%;padding:22px 18px 20px}
+.hero h2{font-size:21px;line-height:1.45}
+.hero p{font-size:12px}
+.hero-photo{width:48%;height:100%}
+.hero-photo img{height:100%;max-height:235px;object-fit:cover;object-position:center top}
+@media(max-width:350px){.hero{min-height:220px}.hero-copy{width:61%;padding:17px 13px}.hero h2{font-size:18px}.hero-photo img{max-height:220px}}
+
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="hello"><h1>أهلًا بك 👋</h1><p>إزاي نقدر نساعدك النهارده؟</p></div>
+    <button class="icon-btn" aria-label="الإشعارات" onclick="notify('لا توجد إشعارات جديدة')">♧</button>
+  </header>
+  <label class="search"><span>⌕</span><input id="searchInput" placeholder="ابحث عن خدمة طبية أو عيادة..." oninput="searchContent(this.value)"><span style="font-size:17px">⌕</span></label>
+  <section class="quick-grid" aria-label="الخدمات السريعة">
+    <button class="quick" onclick="openBooking()"><span class="qicon blue">▣</span><span>حجز موعد</span></button>
+    <button class="quick" onclick="goTo('branches')"><span class="qicon green">▦</span><span>العيادات<br>والفروع</span></button>
+    <button class="quick" onclick="goTo('services')"><span class="qicon purple">▤</span><span>الخدمات<br>الطبية</span></button>
+    <button class="quick" onclick="showModal('ملفاتي الطبية','سيتم تفعيل الملفات الطبية الآمنة عند ربط التطبيق بنظام العيادة.')"><span class="qicon red">▣</span><span>ملفاتي<br>الطبية</span></button>
+  </section>
+  <section class="hero">
+    <div class="hero-copy">
+      <h2>عيادات د. أحمد الزلباني</h2>
+      <p>جراحة المناظير والسمنة المفرطة وجراحة الأطفال</p>
+      <button class="primary" onclick="openBooking()">احجز موعدك الآن ←</button>
+    </div>
+    <div class="hero-photo"><img src="images/hero.jpg" alt="الدكتور أحمد الزلباني"></div>
+    <div class="online"><i></i> عيادات الدكتور</div>
+  </section>
+  <section class="section" id="about">
+    <div class="section-title"><h3>عن الدكتور</h3></div>
+    <div class="about-card" data-search="عن الدكتور أحمد الزلباني استشاري جراحة المناظير السمنة خبرة 25 عاما">
+      <div class="avatar"><img id="aboutImg" alt="الدكتور أحمد الزلباني"></div>
+      <div><h4>د. أحمد الزلباني</h4><div class="role" id="aboutRole"></div><span class="exp-chip" id="aboutExp"></span></div>
+      <p id="aboutTxt"></p>
+      <button class="more" onclick="openAbout()">اقرأ المزيد ←</button>
+    </div>
+  </section>
+  <section class="section" id="services">
+    <div class="section-title"><h3>الخدمات الطبية</h3><button onclick="showAllServices()">عرض الكل ←</button></div>
+    <div class="specialties">
+      <div class="specialty" data-search="جراحات السمنة"><div class="spec-icon pink">♡</div><span>جراحات السمنة</span></div>
+      <div class="specialty" data-search="جراحة المناظير"><div class="spec-icon teal">✣</div><span>المناظير</span></div>
+      <div class="specialty" data-search="جراحة الأطفال"><div class="spec-icon lilac">♧</div><span>جراحة الأطفال</span></div>
+      <div class="specialty" data-search="استشارة طبية"><div class="spec-icon orange">✚</div><span>استشارة طبية</span></div>
+      <div class="specialty" data-search="متابعة بعد العملية"><div class="spec-icon sky">⌁</div><span>المتابعة</span></div>
+    </div>
+  <div class="procs-label">العمليات والإجراءات</div>
+    <div class="procs" id="procs"></div>
+  </section>
+  <section class="section" id="branches">
+    <div class="section-title"><h3>أماكن العيادات ومواعيد الاستشارات</h3></div>
+    <p class="clinics-intro">يستقبل الدكتور أحمد الزلباني المرضى في عدد من المستشفيات والمراكز الطبية بمحافظات المنوفية والغربية والقليوبية والقاهرة، لتقديم الاستشارات الطبية وتقييم الحالات وتحديد الخيارات العلاجية المناسبة.</p>
+    <div class="clinics">
+    <article class="clinic" data-search="منوف المنوفية مستشفى البسمة التخصصي الاثنين 18 شارع عيادة، منوف، محافظة المنوفية.">
+      <div class="clinic-top"><div><span class="clinic-city">⌖ مدينة منوف – محافظة المنوفية</span><b>مستشفى البسمة التخصصي</b></div><span class="day-chip"><small>يوم الاستقبال</small>الاثنين</span></div>
+      <p class="clinic-addr">18 شارع عيادة، منوف، محافظة المنوفية.</p>
+      <div class="clinic-actions"><button class="primary" onclick='openBooking(&#x27;مستشفى البسمة التخصصي&#x27;)'>احجز في هذا الفرع</button><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%D9%85%D8%B3%D8%AA%D8%B4%D9%81%D9%89%20%D8%A7%D9%84%D8%A8%D8%B3%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AE%D8%B5%D8%B5%D9%8A%2018%20%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A9%D8%8C%20%D9%85%D9%86%D9%88%D9%81%D8%8C%20%D9%85%D8%AD%D8%A7%D9%81%D8%B8%D8%A9%20%D8%A7%D9%84%D9%85%D9%86%D9%88%D9%81%D9%8A%D8%A9." target="_blank" rel="noopener">الموقع على الخريطة</a></div>
+    </article>
+    <article class="clinic" data-search="شبين الكوم المنوفية مستشفى الدرة التخصصي الخميس قسم شبين الكوم، شبين الكوم، محافظة المنوفية.">
+      <div class="clinic-top"><div><span class="clinic-city">⌖ مدينة شبين الكوم – محافظة المنوفية</span><b>مستشفى الدرة التخصصي</b></div><span class="day-chip"><small>يوم الاستقبال</small>الخميس</span></div>
+      <p class="clinic-addr">قسم شبين الكوم، شبين الكوم، محافظة المنوفية.</p>
+      <div class="clinic-actions"><button class="primary" onclick='openBooking(&#x27;مستشفى الدرة التخصصي&#x27;)'>احجز في هذا الفرع</button><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%D9%85%D8%B3%D8%AA%D8%B4%D9%81%D9%89%20%D8%A7%D9%84%D8%AF%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AE%D8%B5%D8%B5%D9%8A%20%D9%82%D8%B3%D9%85%20%D8%B4%D8%A8%D9%8A%D9%86%20%D8%A7%D9%84%D9%83%D9%88%D9%85%D8%8C%20%D8%B4%D8%A8%D9%8A%D9%86%20%D8%A7%D9%84%D9%83%D9%88%D9%85%D8%8C%20%D9%85%D8%AD%D8%A7%D9%81%D8%B8%D8%A9%20%D8%A7%D9%84%D9%85%D9%86%D9%88%D9%81%D9%8A%D8%A9." target="_blank" rel="noopener">الموقع على الخريطة</a></div>
+    </article>
+    <article class="clinic" data-search="طنطا الغربية مستشفى الرحاب التخصصي الخميس شارع عمرو بن العاص، قسم ثان طنطا، طنطا، محافظة الغربية.">
+      <div class="clinic-top"><div><span class="clinic-city">⌖ مدينة طنطا – محافظة الغربية</span><b>مستشفى الرحاب التخصصي</b></div><span class="day-chip"><small>يوم الاستقبال</small>الخميس</span></div>
+      <p class="clinic-addr">شارع عمرو بن العاص، قسم ثان طنطا، طنطا، محافظة الغربية.</p>
+      <div class="clinic-actions"><button class="primary" onclick='openBooking(&#x27;مستشفى الرحاب التخصصي&#x27;)'>احجز في هذا الفرع</button><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%D9%85%D8%B3%D8%AA%D8%B4%D9%81%D9%89%20%D8%A7%D9%84%D8%B1%D8%AD%D8%A7%D8%A8%20%D8%A7%D9%84%D8%AA%D8%AE%D8%B5%D8%B5%D9%8A%20%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%B9%D9%85%D8%B1%D9%88%20%D8%A8%D9%86%20%D8%A7%D9%84%D8%B9%D8%A7%D8%B5%D8%8C%20%D9%82%D8%B3%D9%85%20%D8%AB%D8%A7%D9%86%20%D8%B7%D9%86%D8%B7%D8%A7%D8%8C%20%D8%B7%D9%86%D8%B7%D8%A7%D8%8C%20%D9%85%D8%AD%D8%A7%D9%81%D8%B8%D8%A9%20%D8%A7%D9%84%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9." target="_blank" rel="noopener">الموقع على الخريطة</a></div>
+    </article>
+    <article class="clinic" data-search="بنها القليوبية مركز توليب التخصصي الخميس شارع 6، قسم بنها، بنها، محافظة القليوبية.">
+      <div class="clinic-top"><div><span class="clinic-city">⌖ مدينة بنها – محافظة القليوبية</span><b>مركز توليب التخصصي</b></div><span class="day-chip"><small>يوم الاستقبال</small>الخميس</span></div>
+      <p class="clinic-addr">شارع 6، قسم بنها، بنها، محافظة القليوبية.</p>
+      <div class="clinic-actions"><button class="primary" onclick='openBooking(&#x27;مركز توليب التخصصي&#x27;)'>احجز في هذا الفرع</button><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%D9%85%D8%B1%D9%83%D8%B2%20%D8%AA%D9%88%D9%84%D9%8A%D8%A8%20%D8%A7%D9%84%D8%AA%D8%AE%D8%B5%D8%B5%D9%8A%20%D8%B4%D8%A7%D8%B1%D8%B9%206%D8%8C%20%D9%82%D8%B3%D9%85%20%D8%A8%D9%86%D9%87%D8%A7%D8%8C%20%D8%A8%D9%86%D9%87%D8%A7%D8%8C%20%D9%85%D8%AD%D8%A7%D9%81%D8%B8%D8%A9%20%D8%A7%D9%84%D9%82%D9%84%D9%8A%D9%88%D8%A8%D9%8A%D8%A9." target="_blank" rel="noopener">الموقع على الخريطة</a></div>
+    </article>
+    <article class="clinic" data-search="القاهرة المقطم مستشفى المصري التخصصي – المقطم الاثنين القطعة 1155، شارع 9، حي الأسمرات، المقطم، محافظة القاهرة.">
+      <div class="clinic-top"><div><span class="clinic-city">⌖ القاهرة – المقطم</span><b>مستشفى المصري التخصصي – المقطم</b></div><span class="day-chip"><small>يوم الاستقبال</small>الاثنين</span></div>
+      <p class="clinic-addr">القطعة 1155، شارع 9، حي الأسمرات، المقطم، محافظة القاهرة.</p>
+      <div class="clinic-actions"><button class="primary" onclick='openBooking(&#x27;مستشفى المصري التخصصي – المقطم&#x27;)'>احجز في هذا الفرع</button><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%D9%85%D8%B3%D8%AA%D8%B4%D9%81%D9%89%20%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%20%D8%A7%D9%84%D8%AA%D8%AE%D8%B5%D8%B5%D9%8A%20%E2%80%93%20%D8%A7%D9%84%D9%85%D9%82%D8%B7%D9%85%20%D8%A7%D9%84%D9%82%D8%B7%D8%B9%D8%A9%201155%D8%8C%20%D8%B4%D8%A7%D8%B1%D8%B9%209%D8%8C%20%D8%AD%D9%8A%20%D8%A7%D9%84%D8%A3%D8%B3%D9%85%D8%B1%D8%A7%D8%AA%D8%8C%20%D8%A7%D9%84%D9%85%D9%82%D8%B7%D9%85%D8%8C%20%D9%85%D8%AD%D8%A7%D9%81%D8%B8%D8%A9%20%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9." target="_blank" rel="noopener">الموقع على الخريطة</a></div>
+    </article>
+    </div>
+    <div class="clinic-cta">
+      <h4>احجز استشارتك مع الدكتور أحمد الزلباني</h4>
+      <p>اختر أقرب مستشفى إليك، وتعرّف على الخيارات العلاجية المناسبة لحالتك من خلال استشارة طبية متخصصة.</p>
+      <button class="primary" onclick="openBooking()">احجز استشارتك ←</button>
+      <small>يُرجى التأكد من موعد الاستقبال قبل التوجه إلى المستشفى.</small>
+    </div>
+  </section>
+  <section class="section" id="why">
+    <div class="section-title"><h3>لماذا تختار الدكتور أحمد الزلباني؟</h3></div>
+    <p class="clinics-intro" id="whyIntro"></p>
+    <div class="why-list" id="whyList"></div>
+    <div class="clinic-cta" style="margin-top:16px">
+      <h4>رحلتك العلاجية تبدأ بالاستشارة</h4>
+      <p id="journeyTxt"></p>
+      <button class="primary" onclick="openBooking()">احجز استشارتك ←</button>
+      <div class="tagline" id="tagline"></div>
+    </div>
+    <p class="disc" id="disc"></p>
+  </section>
+  <section class="section" id="appointments">
+    <div class="section-title"><h3>مواعيدي القادمة</h3><button onclick="showAppointments()">عرض الكل ←</button></div>
+    <div id="appointmentCard" class="appointment" onclick="openBooking()">
+      <div class="avatar" style="display:grid;place-items:center;color:#216de0;font-size:24px">▦</div>
+      <div class="appt-info"><b>ليس لديك موعد قادم</b><small>احجز موعدك مع العيادة في خطوات بسيطة.</small><div class="appt-meta"><span>اختر الخدمة والفرع المناسب</span></div></div>
+      <button class="primary" onclick="event.stopPropagation();openBooking()" style="padding:9px 10px">احجز</button>
+    </div>
+  </section>
+  <nav class="bottom" aria-label="التنقل الرئيسي">
+    <button class="tab active" onclick="activateTab(this,'home')"><span class="tabicon">⌂</span><span>الرئيسية</span></button>
+    <button class="tab" onclick="activateTab(this,'services')"><span class="tabicon">⌕</span><span>الخدمات</span></button>
+    <button class="tab" onclick="activateTab(this,'appointments')"><span class="tabicon">▦</span><span>مواعيدي</span></button>
+    <button class="tab" onclick="showModal('الرسائل','سيتم تفعيل الرسائل والتنبيهات عند ربط النظام.')"><span class="tabicon">▤</span><span>الرسائل</span></button>
+    <button class="tab" onclick="showModal('حسابي','سيتم تفعيل حساب المريض عند تجهيز تسجيل الدخول الآمن.')"><span class="tabicon">♙</span><span>حسابي</span></button>
+  </nav>
+</div>
+<div class="page" id="page" role="dialog" aria-modal="true">
+  <div class="page-head"><button class="back" onclick="closePage()" aria-label="رجوع">→</button><h3 id="pageTitle"></h3></div>
+  <div class="page-body" id="pageBody"></div>
+  <div class="page-cta" id="pageCta"></div>
+</div>
+<div class="modal-bg" id="modalBg" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-head"><h3 id="modalTitle">حجز موعد</h3><button class="close" onclick="closeModal()">×</button></div><div id="modalBody"></div></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const doctorImage='images/doctor.jpg';
+function goTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'})}
+function notify(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2500)}
+function showModal(title,body){document.getElementById('modalTitle').textContent=title;document.getElementById('modalBody').innerHTML='<p style="font-size:14px;line-height:1.9;color:#65748a">'+body+'</p><button class="primary full" onclick="closeModal()">حسنًا</button>';document.getElementById('modalBg').classList.add('show')}
+function closeModal(){document.getElementById('modalBg').classList.remove('show')}
+function openBooking(pre,svc){
+ document.getElementById('modalTitle').textContent='احجز موعدك';
+ document.getElementById('modalBody').innerHTML=`<form id="bookForm"><div class="field"><label>الاسم بالكامل</label><input name="name" required placeholder="اكتب اسم المريض"></div><div class="field"><label>رقم الهاتف</label><input name="phone" type="tel" required pattern="[0-9+() -]{8,18}" placeholder="01xxxxxxxxx"></div><div class="field"><label>الخدمة الطبية</label><select name="service" required><option value="">اختر الخدمة</option><option>جراحات السمنة</option><option>جراحة المناظير</option><option>جراحة الأطفال</option><option>استشارة طبية</option><option>متابعة بعد العملية</option></select></div><div class="field"><label>الفرع / المستشفى</label><select name="branch" required><option value="">اختر الفرع</option><option>مستشفى البسمة التخصصي</option><option>مستشفى الدرة التخصصي</option><option>مستشفى الرحاب التخصصي</option><option>مركز توليب التخصصي</option><option>مستشفى المصري التخصصي – المقطم</option></select></div><div class="field"><label>التاريخ المفضّل</label><input name="date" type="date" required min="${new Date().toISOString().slice(0,10)}"></div><button class="primary full" type="submit">إرسال طلب الحجز</button><p class="notice">هذا نموذج أولي للواجهة فقط؛ لن يتم إرسال الطلب إلى العيادة أو تأكيد الموعد قبل ربط النظام بخادم الحجز الفعلي.</p></form>`;
+ document.getElementById('modalBg').classList.add('show');
+ if(typeof pre==='string'){const sel=document.querySelector('#bookForm [name=branch]');if(sel)sel.value=pre}
+ if(typeof svc==='string'){const sv=document.querySelector('#bookForm [name=service]');if(sv)sv.value=svc}
+ document.getElementById('bookForm').addEventListener('submit',e=>{e.preventDefault();const d=new FormData(e.target);const b={name:d.get('name'),phone:d.get('phone'),service:d.get('service'),branch:d.get('branch'),date:d.get('date')};try{localStorage.setItem('ahmed_z_booking',JSON.stringify(b))}catch(err){}closeModal();renderAppointment();notify('تم حفظ طلب تجريبي على هذا الجهاز فقط');});
+}
+function renderAppointment(){let b=null;try{b=JSON.parse(localStorage.getItem('ahmed_z_booking')||'null')}catch(e){}const el=document.getElementById('appointmentCard');if(!b)return;el.innerHTML='<div class="avatar"><img src="'+doctorImage+'" alt="الدكتور أحمد الزلباني"></div><div class="appt-info"><b>'+safe(b.service)+'</b><small>'+safe(b.name)+(b.branch?' — '+safe(b.branch):'')+'</small><div class="appt-meta"><span>▦ '+safe(b.date)+'</span><span>قيد التجربة</span></div></div><span class="status">طلب تجريبي</span>';el.onclick=()=>showAppointments()}
+function safe(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function showAppointments(){let b=null;try{b=JSON.parse(localStorage.getItem('ahmed_z_booking')||'null')}catch(e){}if(!b){showModal('مواعيدي','لا توجد طلبات حجز تجريبية محفوظة على هذا الجهاز.');return}showModal('طلب الحجز التجريبي',`الخدمة: ${safe(b.service)}${b.branch?' — الفرع: '+safe(b.branch):''} — التاريخ: ${safe(b.date)}. الطلب محفوظ محليًا فقط وغير مؤكد من العيادة.`)}
+function showAllServices(){openList();return;showModal('الخدمات الطبية','جراحات السمنة، جراحة المناظير، جراحة الأطفال، الاستشارات الطبية والمتابعة. تفاصيل الخدمات النهائية تُراجع وتعتمد من إدارة الدكتور.')}
+function searchContent(value){const q=value.trim().toLowerCase();document.querySelectorAll('[data-search]').forEach(el=>{el.style.opacity=(!q||el.dataset.search.toLowerCase().includes(q))?'1':'.25'});if(q){const matched=[...document.querySelectorAll('[data-search]')].some(el=>el.dataset.search.toLowerCase().includes(q));if(!matched&&q.length>2){} }}
+function activateTab(btn,id){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');if(id==='home'){window.scrollTo({top:0,behavior:'smooth'});return}goTo(id)}
+renderAppointment();
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+let D=null;
+async function loadData(){
+  const [A,PR]=await Promise.all(['data/doctor.json','data/procedures.json'].map(u=>fetch(u).then(r=>{if(!r.ok)throw new Error(u+' '+r.status);return r.json()})));
+  D={A:A,P:PR.procedures,order:PR.order};
+}
+function esc(t){return String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function li(v){const k=v.indexOf(': ');return (k>2&&k<42)?'<li><b>'+esc(v.slice(0,k))+'</b>: '+esc(v.slice(k+2))+'</li>':'<li>'+esc(v)+'</li>'}
+function items(arr){let out='',ul='';const flush=()=>{if(ul){out+='<ul>'+ul+'</ul>';ul=''}};arr.forEach(([t,v])=>{if(t==='li'){ul+=li(v)}else{flush();out+=t==='h'?'<h5>'+esc(v)+'</h5>':'<p>'+esc(v)+'</p>'}});flush();return out}
+const SVC={sleeve:'جراحات السمنة',bypass:'جراحات السمنة',sasi:'جراحات السمنة',balloon:'جراحات السمنة',sweat:'جراحة المناظير',scope:'جراحة المناظير'};
+let backTo=null,curPage=null;
+function showPage(title,body,cta){document.getElementById('pageTitle').textContent=title;document.getElementById('pageBody').innerHTML=body;document.getElementById('pageCta').innerHTML=cta||'';document.getElementById('pageCta').style.display=cta?'flex':'none';document.getElementById('page').classList.add('show');document.getElementById('pageBody').scrollTop=0;document.body.style.overflow='hidden'}
+function hidePage(){document.getElementById('page').classList.remove('show');document.body.style.overflow='';backTo=null;curPage=null}
+function closePage(){if(backTo){const f=backTo;backTo=null;f();return}hidePage()}
+function toBranches(){hidePage();setTimeout(()=>goTo('branches'),80)}
+function bookFrom(svc){openBooking(undefined,svc)}
+function openList(){curPage='list';backTo=null;const rows=D.order.map(id=>{const p=D.P[id];return '<button class="prow" onclick="openProc(\''+id+'\')"><div class="spec-icon '+p.color+'">'+p.icon+'</div><div><b>'+esc(p.title)+'</b><small>'+esc(p.sub)+'</small></div><span class="chev">‹</span></button>'}).join('');
+ showPage('الخدمات الطبية','<div class="pbanner"><h2>خدماتنا الطبية</h2>'+D.A.services_intro.map(t=>'<p>'+esc(t)+'</p>').join('')+'</div><div class="plist">'+rows+'</div><p class="disc">'+esc(D.A.disclaimer[0])+'</p>','<button class="primary" onclick="bookFrom()">احجز استشارة</button><button class="ghost" onclick="toBranches()">العيادات والمواعيد</button>')}
+function openProc(id){const p=D.P[id];const fromList=curPage==='list';curPage='proc';
+ const secs=p.sections.map((s,i)=>'<details class="acc"'+(i===0?' open':'')+'><summary>'+esc(s.t)+'</summary><div class="acc-body">'+items(s.items)+'</div></details>').join('');
+ showPage(p.title,'<div class="pbanner"><div class="spec-icon '+p.color+'">'+p.icon+'</div><h2>'+esc(p.intro[0])+'</h2>'+p.intro.slice(1).map(t=>'<p>'+esc(t)+'</p>').join('')+'</div>'+secs+'<p class="disc">'+esc(D.A.disclaimer[0])+'</p>','<button class="primary" onclick="bookFrom(\''+SVC[id]+'\')">احجز استشارة</button><button class="ghost" onclick="toBranches()">العيادات والمواعيد</button>');
+ backTo=fromList?openList:null}
+function openAbout(){curPage='about';backTo=null;const A=D.A;
+ const body='<div class="pbanner"><div class="pphoto"><img src="'+document.querySelector('.hero-photo img').src+'" alt=""></div><h2>د. أحمد الزلباني</h2><p style="font-weight:800;color:#216de0;margin:0 0 6px">'+esc(A.about[0])+'</p><span class="exp-chip">'+esc(A.about[1])+'</span><div style="clear:both"></div></div>'
+ +'<div class="stats"><div class="stat"><b>25</b><small>عامًا من الخبرة</small></div><div class="stat"><b>'+D.order.length+'</b><small>خدمات متخصصة</small></div><div class="stat"><b>5</b><small>مواقع استقبال</small></div></div>'
+ +'<div style="margin-top:12px">'+A.about.slice(2).map(t=>'<p style="font-size:12.5px;line-height:2;color:#53627a;margin:0 0 10px">'+esc(t)+'</p>').join('')+'</div>'
+ +'<div class="vm"><div><h5>رؤيتنا</h5><p>'+esc(A.vision[0])+'</p></div><div><h5>رسالتنا</h5><p>'+esc(A.mission[0])+'</p></div></div>'
+ +'<details class="acc" open><summary>قيمنا</summary><div class="acc-body"><ul>'+A.values.map(li).join('')+'</ul></div></details>'
+ +'<div class="plist" style="margin-top:14px"><button class="prow" onclick="openList()"><div class="spec-icon teal">✣</div><div><b>خدماتنا الطبية</b><small>تعرّف على العمليات والإجراءات</small></div><span class="chev">‹</span></button></div><p class="disc">'+esc(A.disclaimer[0])+'</p>';
+ showPage('عن الدكتور',body,'<button class="primary" onclick="bookFrom()">احجز استشارتك</button><button class="ghost" onclick="toBranches()">العيادات والمواعيد</button>')}
+function initContent(){const A=D.A;
+ document.getElementById('aboutImg').src=doctorImage;document.getElementById('aboutRole').textContent=A.about[0];document.getElementById('aboutExp').textContent=A.about[1];document.getElementById('aboutTxt').textContent=A.about[2];
+ document.getElementById('procs').innerHTML=D.order.map(id=>{const p=D.P[id];return '<button class="proc" data-search="'+esc(p.title+' '+p.sub)+'" onclick="openProc(\''+id+'\')"><div class="spec-icon '+p.color+'">'+p.icon+'</div><b>'+esc(p.title)+'</b><small>'+esc(p.sub)+'</small></button>'}).join('');
+ document.getElementById('whyIntro').textContent=A.why[0];
+ document.getElementById('whyList').innerHTML=A.why.slice(1).map(v=>{const x=v.replace(/^- /,''),k=x.indexOf(': ');return '<div class="why-item"><i>✓</i><div><b>'+esc(x.slice(0,k))+'</b><span>'+esc(x.slice(k+2))+'</span></div></div>'}).join('');
+ document.getElementById('journeyTxt').textContent=A.journey.join(' ');
+ document.getElementById('tagline').textContent=A.tagline[0];document.getElementById('disc').textContent=A.disclaimer[0];
+ const map={'جراحات السمنة':()=>openList(),'جراحة المناظير':()=>openProc('scope'),'جراحة الأطفال':()=>openProc('scope'),'استشارة طبية':()=>bookFrom('استشارة طبية'),'متابعة بعد العملية':()=>bookFrom('متابعة بعد العملية')};
+ document.querySelectorAll('.specialty').forEach(el=>{const f=map[el.dataset.search];if(f)el.onclick=f});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('page').classList.contains('show'))closePage()})}
+
+loadData().then(initContent).catch(e=>{console.error(e);const t=document.getElementById('toast');if(t){t.textContent='تعذّر تحميل بيانات الدكتور، تأكد من الاتصال وحاول مرة أخرى';t.classList.add('show')}});
+</script>
+</body>
+</html>
