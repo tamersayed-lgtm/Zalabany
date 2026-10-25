@@ -326,7 +326,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 
 let D=null;
 async function loadData(){
-  const [A,PR]=await Promise.all(['data/doctor.json','data/procedures.json'].map(u=>fetch(u).then(r=>{if(!r.ok)throw new Error(u+' '+r.status);return r.json()})));
+  const getJ=u=>fetch(u).then(r=>{if(!r.ok)throw new Error(u+' '+r.status);return r.json()});
+  const [A,PR]=await Promise.all([getJ('data/doctor.json'),getJ('data/procedures.json')]);
   D={A:A,P:PR.procedures,order:PR.order};
 }
 function esc(t){return String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
