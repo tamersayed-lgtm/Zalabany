@@ -2,6 +2,12 @@
 <html lang="ar" dir="rtl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0a2730">
+<link rel="manifest" href="dash-manifest.webmanifest">
+<link rel="icon" href="dash-icon-192.png">
+<link rel="apple-touch-icon" href="dash-icon-apple.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="لوحة الزلباني">
 <title>لوحة تحكم د. أحمد الزلباني</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,6 +47,18 @@ main{min-width:0;display:flex;flex-direction:column}
 h1{font-size:20px;font-weight:700;line-height:1.3;letter-spacing:-.2px}
 .top p{color:var(--mut);font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tact{display:flex;gap:8px;align-items:center}
+#nfb{position:relative}
+#nfb.on{background:color-mix(in srgb,var(--teal) 14%,var(--card));border-color:var(--teal);color:var(--blue)}
+#nfb:not(.on)::after{content:"";position:absolute;top:6px;inset-inline-end:6px;width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 2px var(--card)}
+#nfb.ring .ic{animation:nfr .9s var(--ease) 2}
+@keyframes nfr{0%,100%{transform:rotate(0)}20%{transform:rotate(16deg)}40%{transform:rotate(-14deg)}60%{transform:rotate(9deg)}80%{transform:rotate(-5deg)}}
+.nfn{position:fixed;top:14px;inset-inline:14px;z-index:9999;max-width:420px;margin-inline:auto;background:var(--side);color:#fff;border-radius:16px;padding:14px 16px;display:flex;gap:12px;align-items:center;box-shadow:0 18px 40px -12px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.12);cursor:pointer;transform:translateY(-140%);transition:transform .45s var(--ease)}
+.nfn.o{transform:none}
+.nfn i{flex:none;width:38px;height:38px;border-radius:12px;background:var(--teal);display:grid;place-items:center}
+.nfn i svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.nfn b{display:block;font-size:14px}.nfn small{opacity:.8;font-size:12.5px}
+@media(max-width:700px){#nfb .tx{display:none}}
+
 .ib.mb{display:none}
 .wrap{padding:8px 28px 48px;max-width:1360px;width:100%}
 .pg{display:none}.pg.on{display:block;animation:fi .35s var(--ease)}
@@ -350,6 +368,14 @@ svg.ic{display:block}
 /* رأس ملف المريض/الحجز بدون إطار */
 .c.pfc{background:none;border:0;box-shadow:none;padding:4px 0 10px;border-radius:0}
 @media(max-width:900px){.bn .bdg{top:-5px;left:calc(50% - 25px)}}
+.pwa-i[hidden]{display:none!important}
+#pwab{position:fixed;z-index:10000;top:calc(10px + env(safe-area-inset-top));left:12px;right:12px;max-width:440px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:12px;border-radius:20px;color:#fff;background:linear-gradient(135deg,#0e3b46,#0b6e72);border:1px solid rgba(94,234,212,.28);box-shadow:0 18px 40px -12px rgba(0,0,0,.5);transform:translateY(calc(-100% - 60px));visibility:hidden;transition:transform .55s var(--ease),visibility .55s}
+#pwab.o{transform:none;visibility:visible}
+#pwab img{width:48px;height:48px;border-radius:12px;flex:none;box-shadow:0 6px 16px -6px #000}
+#pwab div{flex:1;min-width:0;line-height:1.45}#pwab b{display:block;font-size:14px}#pwab small{display:block;font-size:11.5px;opacity:.8}
+#pwab .go{background:#5eead4;color:#06302f;font-weight:700;border-radius:12px;padding:9px 16px;flex:none}
+#pwab .x{color:#fff;opacity:.65;font-size:22px;line-height:1;padding:4px;flex:none}
+@media(prefers-reduced-motion:reduce){#pwab{transition:none}}
 </style></head><body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -361,6 +387,7 @@ svg.ic{display:block}
 <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20.5v-1A5.5 5.5 0 0 1 8 14h2a5.5 5.5 0 0 1 5.5 5.5v1"/><path d="M16 4.7a3.5 3.5 0 0 1 0 6.6M21.5 20.5v-1a5.5 5.5 0 0 0-3.5-5.1"/></symbol>
 <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
 <symbol id="i-more" viewBox="0 0 24 24"><path d="M5 12h.01M12 12h.01M19 12h.01" stroke-width="3.6"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9z"/><path d="M10 20a2 2 0 0 0 4 0"/></symbol>
 <symbol id="i-ref" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.3-4.5L4 8.5"/><path d="M4 4v4.5h4.5"/><path d="M4 13a8 8 0 0 0 14.3 4.5L20 15.5"/><path d="M20 20v-4.5h-4.5"/></symbol>
 <symbol id="i-dl" viewBox="0 0 24 24"><path d="M12 3v12M7 10.5l5 5 5-5M4 20h16"/></symbol>
 <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 0 0 11 11z"/></symbol>
@@ -384,7 +411,7 @@ svg.ic{display:block}
 <h2>لوحة التحكم</h2><p><b>د. أحمد الزلباني</b><br>استشاري جراحة المناظير والسمنة</p>
 <input id="em" type="email" placeholder="البريد الإلكتروني" autocomplete="username"><input id="pw" type="password" placeholder="كلمة المرور" autocomplete="current-password">
 <label class="rm"><input type="checkbox" id="rm"><span class="ck"><svg class="ic"><use href="#i-check"/></svg></span>حفظ الدخول</label>
-<div class="er" id="er"></div><button class="btn">دخول</button><button type="button" class="btn g" onclick="demo()">معاينة بيانات تجريبية</button></form></div>
+<div class="er" id="er"></div><button class="btn">دخول</button><button type="button" class="btn g" onclick="demo()">معاينة بيانات تجريبية</button><button type="button" class="btn g pwa-i" onclick="installApp()" hidden>تثبيت التطبيق</button></form></div>
 
 <div class="app"><aside>
 <div class="logo"><i><svg class="ic"><use href="#i-plus"/></svg></i><div><b>د. أحمد الزلباني</b><small>لوحة إدارة العيادات</small></div></div>
@@ -395,6 +422,7 @@ svg.ic{display:block}
 <button class="nv" data-p="fu"><svg class="ic"><use href="#i-pill"/></svg>الأدوية والجرعات</button>
 <button class="nv" data-p="ct"><svg class="ic"><use href="#i-doc"/></svg>محتوى الخدمات</button>
 <div class="sp"></div>
+<button class="nv pwa-i" onclick="installApp()" hidden><svg class="ic"><use href="#i-dl"/></svg>تثبيت التطبيق</button>
 <button class="nv" onclick="theme()"><svg class="ic"><use href="#i-moon"/></svg>تبديل المظهر</button>
 <button class="nv" onclick="logout()"><svg class="ic"><use href="#i-out"/></svg>تسجيل الخروج</button>
 <div class="sm" id="md"></div></aside>
@@ -406,6 +434,7 @@ svg.ic{display:block}
 <div class="ttl"><h1 id="tt">نظرة عامة</h1><p id="sb"></p></div>
 <div class="tact">
 <button class="btn" id="pb" style="display:none" onclick="pub()"><svg class="ic"><use href="#i-check"/></svg><span>تأكيد ونشر للتطبيق</span></button>
+<button class="btn g" id="nfb" onclick="nfToggle()" aria-label="إشعارات الحجوزات" title="إشعارات الحجوزات"><svg class="ic"><use href="#i-bell"/></svg><span class="tx" id="nft">الإشعارات</span></button>
 <button class="btn g" onclick="load()" aria-label="تحديث" title="تحديث"><svg class="ic"><use href="#i-ref"/></svg><span class="tx">تحديث</span></button>
 <button class="btn g" onclick="csv()" aria-label="تصدير Excel" title="تصدير Excel"><svg class="ic"><use href="#i-dl"/></svg><span class="tx">تصدير Excel</span></button>
 </div></header>
@@ -779,6 +808,104 @@ setInterval(()=>{if(tok&&!isDemo)load()},90000);
    else if(pg()!==s.pg)_go(s.pg);
   }finally{setTimeout(function(){busy=false},0)}
  });
+})();
+</script>
+<div id="pwab" role="dialog" aria-label="تثبيت التطبيق"><img src="dash-icon-192.png" alt=""><div><b>ثبّت لوحة التحكم</b><small id="pwat">افتحها بضغطة واحدة من شاشتك الرئيسية</small></div><button type="button" class="go" onclick="installApp()">تثبيت</button><button type="button" class="x" aria-label="إغلاق" onclick="pwaClose()">×</button></div>
+<script>
+/* ===== PWA: التثبيت على الجهاز ===== */
+(function(){
+ if("serviceWorker" in navigator)addEventListener("load",function(){navigator.serviceWorker.register("dash-sw.js").catch(function(){})});
+ var ev=null,ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1),
+     app=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+ var bar=document.getElementById("pwab"),closed=false,t;
+ function banner(v){clearTimeout(t);if(v&&!closed&&!app)t=setTimeout(function(){bar.classList.add("o")},700);else bar.classList.remove("o")}
+ window.pwaClose=function(){closed=true;banner(false)};
+ function show(v){document.querySelectorAll(".pwa-i").forEach(function(b){b.hidden=!v});banner(v)}
+ addEventListener("beforeinstallprompt",function(e){e.preventDefault();ev=e;show(true)});
+ addEventListener("appinstalled",function(){ev=null;show(false)});
+ if(ios&&!app)show(true);
+ window.installApp=function(){
+  if(ev){ev.prompt();ev=null;show(false)}
+  else if(ios){closed=false;document.getElementById("pwat").textContent="في Safari: اضغط زر المشاركة ثم «إضافة إلى الشاشة الرئيسية»";bar.querySelector(".go").hidden=true;bar.classList.add("o")}
+ };
+})();
+</script>
+<script>
+/* ===== إشعارات الحجوزات الجديدة ===== */
+(function(){
+ var KEYN="zn",seen=null,orig=window.load,fast=0,bt=document.title,flash=0,ac=null;
+ var bell=document.getElementById("nfb"),lbl=document.getElementById("nft");
+ var sup="Notification" in window;
+ function want(){try{return localStorage.getItem(KEYN)==="1"}catch(e){return false}}
+ function on(){return sup&&Notification.permission==="granted"&&want()}
+ function ui(){
+  bell.classList.toggle("on",on());
+  lbl.textContent=!sup?"غير مدعوم":Notification.permission==="denied"?"الإشعارات محظورة":on()?"الإشعارات تعمل":"تفعيل الإشعارات";
+ }
+ function beep(){try{
+  ac=ac||new (window.AudioContext||window.webkitAudioContext)();if(ac.state==="suspended")ac.resume();
+  [[880,0],[1175,.16],[1568,.32]].forEach(function(n){var o=ac.createOscillator(),g=ac.createGain();o.type="sine";o.frequency.value=n[0];
+   g.gain.setValueAtTime(0,ac.currentTime+n[1]);g.gain.linearRampToValueAtTime(.25,ac.currentTime+n[1]+.02);g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+n[1]+.28);
+   o.connect(g);g.connect(ac.destination);o.start(ac.currentTime+n[1]);o.stop(ac.currentTime+n[1]+.3)})}catch(e){}}
+ function esc2(t){return String(t==null?"":t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+ function banner(title,body,id){
+  var d=document.createElement("div");d.className="nfn";
+  d.innerHTML='<i><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></i><div><b>'+esc2(title)+'</b><small>'+esc2(body)+'</small></div>';
+  d.onclick=function(){d.remove();open(id)};document.body.appendChild(d);
+  requestAnimationFrame(function(){d.classList.add("o")});
+  setTimeout(function(){d.classList.remove("o");setTimeout(function(){d.remove()},500)},9000)}
+ function open(id){try{if(id&&window.op)op(id);else if(window.go)go("bk")}catch(e){}}
+ function sys(title,body,id){
+  if(!on())return;
+  var o={body:body,icon:"dash-icon-192.png",badge:"dash-icon-192.png",tag:"zbk-new",renotify:true,vibrate:[200,100,200,100,300],dir:"rtl",lang:"ar",data:{id:id||""}};
+  if(navigator.serviceWorker&&navigator.serviceWorker.ready){
+   navigator.serviceWorker.ready.then(function(r){return r.showNotification(title,o)}).catch(function(){try{new Notification(title,o)}catch(e){}})
+  }else{try{new Notification(title,o)}catch(e){}}}
+ function mark(n){
+  try{if(navigator.setAppBadge){var p=(typeof B!=="undefined"?B:[]).filter(function(b){return b.status==="pending"}).length;p?navigator.setAppBadge(p):navigator.clearAppBadge()}}catch(e){}
+  if(document.hidden&&n){clearInterval(flash);var k=0;flash=setInterval(function(){document.title=k++%2?bt:"🔔 حجز جديد ("+n+")";if(!document.hidden){clearInterval(flash);document.title=bt}},1200)}}
+ function scan(){
+  var L=typeof B!=="undefined"?B:[];
+  if(seen===null){seen=new Set(L.map(function(b){return b.id}));mark(0);return}
+  var nw=L.filter(function(b){return !seen.has(b.id)});
+  L.forEach(function(b){seen.add(b.id)});
+  nw=nw.filter(function(b){return b.status==="pending"});
+  mark(nw.length);
+  if(!nw.length)return;
+  var t,b0=nw[0],body;
+  if(nw.length===1){t="حجز جديد من "+(b0.name||"مريض");body=[b0.service,b0.branch,b0.date].filter(Boolean).join(" · ")}
+  else{t="وصلك "+nw.length+" حجوزات جديدة";body=nw.slice(0,3).map(function(b){return b.name}).filter(Boolean).join("، ")}
+  beep();bell.classList.remove("ring");void bell.offsetWidth;bell.classList.add("ring");
+  if(!document.hidden)banner(t,body,nw.length===1?b0.id:"");
+  sys(t,body,nw.length===1?b0.id:"");
+ }
+ /* التفاف حول load الأصلية: بعد كل تحديث للبيانات نفحص الجديد */
+ window.load=async function(){await orig.apply(this,arguments);scan()};
+ /* فحص سريع خفيف كل 20 ثانية: لو ظهر حجز لا نعرفه نحدّث البيانات كاملة */
+ async function quick(){
+  if(!tok||isDemo||seen===null||fast)return;fast=1;
+  try{
+   var r=await fetch(DB+":runQuery",{method:"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer "+tok},
+    body:JSON.stringify({structuredQuery:{from:[{collectionId:"bookings"}],orderBy:[{field:{fieldPath:"createdAt"},direction:"DESCENDING"}],limit:15}})});
+   var j=await r.json();if(!r.ok||!Array.isArray(j))return;
+   var fresh=j.filter(function(x){return x.document&&!seen.has(x.document.name.split("/").pop())});
+   if(fresh.length)await window.load();
+  }catch(e){}finally{fast=0}}
+ setInterval(quick,20000);
+ document.addEventListener("visibilitychange",function(){if(!document.hidden){document.title=bt;clearInterval(flash);quick()}});
+ /* تفعيل/إيقاف الإشعارات (لازم يتم بضغطة من المستخدم) */
+ window.nfToggle=async function(){
+  if(!sup)return toast("المتصفح لا يدعم الإشعارات"+(/iphone|ipad/i.test(navigator.userAgent)?" — على الآيفون ثبّت التطبيق على الشاشة الرئيسية أولًا":""));
+  if(Notification.permission==="denied")return toast("الإشعارات محظورة — فعّلها من إعدادات الموقع في المتصفح");
+  if(on()){try{localStorage.setItem(KEYN,"0")}catch(e){}ui();return toast("تم إيقاف الإشعارات")}
+  var p=Notification.permission==="granted"?"granted":await Notification.requestPermission();
+  if(p==="granted"){try{localStorage.setItem(KEYN,"1")}catch(e){}ui();beep();sys("تم تفعيل الإشعارات","ستصلك رسالة فور وصول أي حجز جديد");toast("تم تفعيل الإشعارات")}
+  else ui()};
+ /* فتح الحجز عند الضغط على الإشعار */
+ if(navigator.serviceWorker)navigator.serviceWorker.addEventListener("message",function(e){var d=e.data||{};if(d.type==="open-booking")open(d.id)});
+ /* أول مرة: لو الإذن ممنوح من قبل نفعّلها تلقائيًا */
+ if(sup&&Notification.permission==="granted"&&localStorage.getItem(KEYN)===null){try{localStorage.setItem(KEYN,"1")}catch(e){}}
+ ui();
 })();
 </script>
 </body></html>
