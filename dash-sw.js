@@ -1,5 +1,5 @@
 // يخزّن هيكل التطبيق فقط، ولا يخزّن أي بيانات من Firebase
-const V="zdash-v3";
+const V="zdash-v4";
 const SHELL=["./index.html","./dash-manifest.webmanifest","./dash-icon-192.png","./dash-icon-512.png"];
 self.addEventListener("install",e=>e.waitUntil(caches.open(V).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting())));
 self.addEventListener("activate",e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x.startsWith("zdash-")&&x!==V).map(x=>caches.delete(x)))).then(()=>self.clients.claim())));
