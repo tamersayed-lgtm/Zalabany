@@ -1,9 +1,9 @@
 {
  "id": "./index.html",
- "name": "لوحة تحكم د. أحمد الزلباني",
- "short_name": "لوحة الزلباني",
- "lang": "ar",
- "dir": "rtl",
+ "name": "dashboard elzalabany",
+ "short_name": "dashboard elzalabany",
+ "lang": "en",
+ "dir": "ltr",
  "start_url": "./index.html",
  "scope": "./",
  "display": "standalone",
