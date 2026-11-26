@@ -49,7 +49,7 @@ h1{font-size:20px;font-weight:700;line-height:1.3;letter-spacing:-.2px}
 .tact{display:flex;gap:8px;align-items:center}
 #nfb{position:relative}
 #nfb.on{background:color-mix(in srgb,var(--teal) 14%,var(--card));border-color:var(--teal);color:var(--blue)}
-#nfb:not(.on)::after{content:"";position:absolute;top:6px;inset-inline-end:6px;width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 2px var(--card)}
+#nfb.has::after{content:"";position:absolute;top:6px;inset-inline-end:6px;width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 2px var(--card)}
 #nfb.ring .ic{animation:nfr .9s var(--ease) 2}
 @keyframes nfr{0%,100%{transform:rotate(0)}20%{transform:rotate(16deg)}40%{transform:rotate(-14deg)}60%{transform:rotate(9deg)}80%{transform:rotate(-5deg)}}
 .nfn{position:fixed;top:14px;inset-inline:14px;z-index:9999;max-width:420px;margin-inline:auto;background:var(--side);color:#fff;border-radius:16px;padding:14px 16px;display:flex;gap:12px;align-items:center;box-shadow:0 18px 40px -12px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.12);cursor:pointer;transform:translateY(-140%);transition:transform .45s var(--ease)}
@@ -57,6 +57,17 @@ h1{font-size:20px;font-weight:700;line-height:1.3;letter-spacing:-.2px}
 .nfn i{flex:none;width:38px;height:38px;border-radius:12px;background:var(--teal);display:grid;place-items:center}
 .nfn i svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .nfn b{display:block;font-size:14px}.nfn small{opacity:.8;font-size:12.5px}
+.nfpn{position:fixed;z-index:9998;top:calc(env(safe-area-inset-top,0px) + 82px);inset-inline:12px;max-width:400px;margin-inline:auto;max-height:70vh;overflow:auto;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shh);padding:6px}
+.nfpn .nfh{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid var(--line)}
+.nfpn .nfh b{font-size:15px}.nfpn .nfh button{font-size:12.5px;color:var(--blue);padding:4px 8px;border-radius:8px}
+.nfpn .nfe{padding:26px 12px;text-align:center;color:var(--mut);font-size:13.5px}
+.nfpn .nfw{margin:8px;padding:9px 11px;border-radius:10px;background:color-mix(in srgb,var(--amb) 14%,var(--card));color:var(--amb);font-size:12.5px}
+.nfpn .nfs{margin:8px;padding:10px 12px;border-radius:10px;background:color-mix(in srgb,var(--teal) 12%,var(--card));color:var(--blue);font-size:13px;font-weight:600;cursor:pointer}
+.nfpn .nfi{padding:10px 12px;border-radius:10px;cursor:pointer;display:grid;gap:2px;position:relative}
+.nfpn .nfi+.nfi{border-top:1px solid var(--line)}
+.nfpn .nfi.u{background:color-mix(in srgb,var(--teal) 9%,var(--card))}
+.nfpn .nfi.u::before{content:"";position:absolute;inset-inline-end:6px;top:14px;width:7px;height:7px;border-radius:50%;background:var(--red)}
+.nfpn .nfi b{font-size:13.5px;padding-inline-end:14px}.nfpn .nfi small{color:var(--mut);font-size:12.5px}.nfpn .nfi em{font-style:normal;color:var(--mut);font-size:11.5px}
 @media(max-width:700px){#nfb .tx{display:none}}
 
 .ib.mb{display:none}
@@ -836,11 +847,15 @@ setInterval(()=>{if(tok&&!isDemo)load()},90000);
  var KEYN="zn",seen=null,orig=window.load,fast=0,bt=document.title,flash=0,ac=null;
  var bell=document.getElementById("nfb"),lbl=document.getElementById("nft");
  var sup="Notification" in window;
- function want(){try{return localStorage.getItem(KEYN)==="1"}catch(e){return false}}
- function on(){return sup&&Notification.permission==="granted"&&want()}
+ var LIST=[];try{LIST=JSON.parse(localStorage.getItem("znl")||"[]")}catch(e){}
+ function save(){try{localStorage.setItem("znl",JSON.stringify(LIST.slice(0,30)))}catch(e){}}
+ function unread(){return LIST.filter(function(n){return !n.r}).length}
+ function on(){return sup&&Notification.permission==="granted"}
  function ui(){
+  var u=unread();
   bell.classList.toggle("on",on());
-  lbl.textContent=!sup?"غير مدعوم":Notification.permission==="denied"?"الإشعارات محظورة":on()?"الإشعارات تعمل":"تفعيل الإشعارات";
+  bell.classList.toggle("has",u>0);
+  lbl.textContent=u?"الإشعارات ("+u+")":"الإشعارات";
  }
  function beep(){try{
   ac=ac||new (window.AudioContext||window.webkitAudioContext)();if(ac.state==="suspended")ac.resume();
@@ -875,6 +890,8 @@ setInterval(()=>{if(tok&&!isDemo)load()},90000);
   var t,b0=nw[0],body;
   if(nw.length===1){t="حجز جديد من "+(b0.name||"مريض");body=[b0.service,b0.branch,b0.date].filter(Boolean).join(" · ")}
   else{t="وصلك "+nw.length+" حجوزات جديدة";body=nw.slice(0,3).map(function(b){return b.name}).filter(Boolean).join("، ")}
+  nw.slice().reverse().forEach(function(x){LIST.unshift({t:"حجز جديد من "+(x.name||"مريض"),b:[x.service,x.branch,x.date].filter(Boolean).join(" · "),id:x.id,d:Date.now(),r:0})});
+  LIST=LIST.slice(0,30);save();ui();
   beep();bell.classList.remove("ring");void bell.offsetWidth;bell.classList.add("ring");
   if(!document.hidden)banner(t,body,nw.length===1?b0.id:"");
   sys(t,body,nw.length===1?b0.id:"");
@@ -893,14 +910,35 @@ setInterval(()=>{if(tok&&!isDemo)load()},90000);
   }catch(e){}finally{fast=0}}
  setInterval(quick,20000);
  document.addEventListener("visibilitychange",function(){if(!document.hidden){document.title=bt;clearInterval(flash);quick()}});
- /* تفعيل/إيقاف الإشعارات (لازم يتم بضغطة من المستخدم) */
+ /* لوحة الإشعارات: الجرس يفتحها دائمًا، وإذن المتصفح يُطلب مرة عند أول ضغطة */
+ var pn=null;
+ function fmt(d){var m=Math.round((Date.now()-d)/60000);if(m<1)return"الآن";if(m<60)return"منذ "+m+" دقيقة";var h=Math.round(m/60);if(h<24)return"منذ "+h+" ساعة";return new Date(d).toLocaleDateString("ar-EG")}
+ function outside(e){if(pn&&!pn.contains(e.target)&&!bell.contains(e.target))closeP()}
+ function closeP(){if(pn){pn.remove();pn=null}document.removeEventListener("click",outside)}
+ function panel(){
+  if(pn){closeP();return}
+  var pend=(typeof B!=="undefined"?B:[]).filter(function(b){return b.status==="pending"}).length;
+  var h='<div class="nfh"><b>الإشعارات</b>'+(LIST.length?'<button type="button" data-a="clr">مسح الكل</button>':'')+'</div>';
+  if(!sup)h+='<div class="nfw">المتصفح لا يدعم إشعارات النظام، وستظهر الإشعارات هنا داخل اللوحة.</div>';
+  else if(Notification.permission==="denied")h+='<div class="nfw">إشعارات النظام محظورة من المتصفح. فعّلها من إعدادات الموقع، وستظل ترى الإشعارات هنا.</div>';
+  if(pend)h+='<div class="nfs" data-a="bk">'+pend+' حجز قيد المراجعة — عرض الحجوزات</div>';
+  if(!LIST.length)h+='<div class="nfe">لا توجد إشعارات جديدة</div>';
+  else h+=LIST.map(function(n,i){return'<div class="nfi'+(n.r?'':' u')+'" data-i="'+i+'"><b>'+esc2(n.t)+'</b><small>'+esc2(n.b)+'</small><em>'+fmt(n.d)+'</em></div>'}).join("");
+  pn=document.createElement("div");pn.className="nfpn";pn.innerHTML=h;document.body.appendChild(pn);
+  pn.onclick=function(e){
+   var a=e.target.closest("[data-a]"),it=e.target.closest("[data-i]");
+   if(a&&a.dataset.a==="clr"){LIST=[];save();ui();closeP();return}
+   if(a&&a.dataset.a==="bk"){closeP();try{go("bk")}catch(x){}return}
+   if(it){var n=LIST[+it.dataset.i];closeP();if(n)open(n.id)}};
+  var had=unread()>0;LIST.forEach(function(n){n.r=1});if(had){save();ui()}
+  setTimeout(function(){document.addEventListener("click",outside)},0);
+ }
  window.nfToggle=async function(){
-  if(!sup)return toast("المتصفح لا يدعم الإشعارات"+(/iphone|ipad/i.test(navigator.userAgent)?" — على الآيفون ثبّت التطبيق على الشاشة الرئيسية أولًا":""));
-  if(Notification.permission==="denied")return toast("الإشعارات محظورة — فعّلها من إعدادات الموقع في المتصفح");
-  if(on()){try{localStorage.setItem(KEYN,"0")}catch(e){}ui();return toast("تم إيقاف الإشعارات")}
-  var p=Notification.permission==="granted"?"granted":await Notification.requestPermission();
-  if(p==="granted"){try{localStorage.setItem(KEYN,"1")}catch(e){}ui();beep();sys("تم تفعيل الإشعارات","ستصلك رسالة فور وصول أي حجز جديد");toast("تم تفعيل الإشعارات")}
-  else ui()};
+  if(sup&&Notification.permission==="default"){
+   try{var p=await Notification.requestPermission();
+    if(p==="granted"){beep();sys("تم تفعيل الإشعارات","ستصلك رسالة فور وصول أي حجز جديد")}}catch(e){}
+   ui()}
+  panel()};
  /* فتح الحجز عند الضغط على الإشعار */
  if(navigator.serviceWorker)navigator.serviceWorker.addEventListener("message",function(e){var d=e.data||{};if(d.type==="open-booking")open(d.id)});
  /* أول مرة: لو الإذن ممنوح من قبل نفعّلها تلقائيًا */
